@@ -26,6 +26,7 @@ public class Ciudad {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	/*hola juanciro*/
 	public String getNombre() {
 		return nombre;
 	}
