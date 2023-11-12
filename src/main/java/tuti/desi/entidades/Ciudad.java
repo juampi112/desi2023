@@ -1,15 +1,17 @@
 package tuti.desi.entidades;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Ciudad {
 	
-/*test--*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -19,6 +21,11 @@ public class Ciudad {
 	@ManyToOne
 	private Provincia provincia;
 	
+	@OneToMany(mappedBy = "ciudadOrigen")
+	private List<Vuelo> vuelo_ciudadOrigen;	
+	
+	@OneToMany(mappedBy = "ciudadDestino")
+	private List<Vuelo> vuelo_ciudadDestino;	
 	
 	public Long getId() {
 		return id;
