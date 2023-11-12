@@ -18,7 +18,7 @@ public class Avion {
 	
 	private String nombre;
 	
-	@OneToMany(mappedBy = "vuelo")
+	@OneToMany(mappedBy = "avion")
 	private List<Vuelo> vuelos;	
 	
 	private int fila;

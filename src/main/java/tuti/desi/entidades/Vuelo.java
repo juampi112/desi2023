@@ -18,25 +18,27 @@ public class Vuelo {
 	private Long id;
 	
 	private Long numeroVuelo;
+	
 	@ManyToOne
-	private List<Ciudad> ciudadOrigen; 
+	private Ciudad ciudadOrigen; 
 	@ManyToOne
-	private List<Ciudad> ciudadDestino; 
+	private Ciudad ciudadDestino; 
 	
 	private String TipoDeVuelo; 
 	
 	private Double precio;	
 	//ZonedDateTime
 	private LocalDateTime fechayHora;
+	
 	@ManyToOne
-	private List<Avion> avion; 
+	private Avion avion; 
 
 	private String estado = "Normal";
 	
-	public List<Avion> getAvion() {
+	public Avion getAvion() {
 		return avion;
 	}
-	public void setAvion(List<Avion> avion) {
+	public void setAvion(Avion avion) {
 		this.avion = avion;
 	}
 	public String getEstado() {
@@ -58,16 +60,16 @@ public class Vuelo {
 	public void setNumeroVuelo(Long numeroVuelo) {
 		this.numeroVuelo = numeroVuelo;
 	}
-	public List<Ciudad> getCiudadOrigen() {
+	public Ciudad getCiudadOrigen() {
 		return ciudadOrigen;
 	}
-	public void setCiudadOrigen(List<Ciudad> ciudadOrigen) {
+	public void setCiudadOrigen(Ciudad ciudadOrigen) {
 		this.ciudadOrigen = ciudadOrigen;
 	}
-	public List<Ciudad> getCiudadDestino() {
+	public Ciudad getCiudadDestino() {
 		return ciudadDestino;
 	}
-	public void setCiudadDestino(List<Ciudad> ciudadDestino) {
+	public void setCiudadDestino(Ciudad ciudadDestino) {
 		this.ciudadDestino = ciudadDestino;
 	}
 	public String getTipoDeVuelo() {
