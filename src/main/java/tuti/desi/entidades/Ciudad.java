@@ -21,11 +21,11 @@ public class Ciudad {
 	@ManyToOne
 	private Provincia provincia;
 	
-	@OneToMany(mappedBy = "ciudadOrigen")
-	private List<Vuelo> vuelo_ciudadOrigen;	
-	
-	@OneToMany(mappedBy = "ciudadDestino")
-	private List<Vuelo> vuelo_ciudadDestino;	
+//	@OneToMany(mappedBy = "ciudadOrigen")   esto mapea una relacion bidireccional, creemos q ciudad y vuelo es uni, porque cuidad 
+//	private List<Vuelo> vuelo_ciudadOrigen;	       no necesita saber nada sobre el vuelo (VER!)
+//	
+//	@OneToMany(mappedBy = "ciudadDestino")
+//	private List<Vuelo> vuelo_ciudadDestino;	
 	
 	public Long getId() {
 		return id;
@@ -45,6 +45,8 @@ public class Ciudad {
 	}
 	public void setProvincia(Provincia provincia) {
 		this.provincia = provincia;
+	}
+	public Ciudad() {
 	}
 	
 	

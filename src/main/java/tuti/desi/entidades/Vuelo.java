@@ -4,31 +4,36 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
+//@NotNull
+@Component
 public class Vuelo {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private Long numeroVuelo;
+	private String numeroVuelo;
 	
 	@ManyToOne
 	private Ciudad ciudadOrigen; 
 	@ManyToOne
 	private Ciudad ciudadDestino; 
 	
-	private String TipoDeVuelo; 
+	private String TipoDeVuelo; //nacional o internacional dropdown? precargado
 	
 	private Double precio;	
 	//ZonedDateTime
-	private LocalDateTime fechayHora;
+	private LocalDateTime fechayHora; //clase de errores usa otro
 	
 	@ManyToOne
 	private Avion avion; 
@@ -54,10 +59,10 @@ public class Vuelo {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Long getNumeroVuelo() {
+	public String getNumeroVuelo() {
 		return numeroVuelo;
 	}
-	public void setNumeroVuelo(Long numeroVuelo) {
+	public void setNumeroVuelo(String numeroVuelo) {
 		this.numeroVuelo = numeroVuelo;
 	}
 	public Ciudad getCiudadOrigen() {
@@ -89,5 +94,9 @@ public class Vuelo {
 	}
 	public void setFechayHora(LocalDateTime fechayHora) {
 		this.fechayHora = fechayHora;
+	}
+	public Vuelo() { // lo creaba con un super() lo borramos tiene que ir o no? lo mismo en ciudad y avion
 	}	
+	
+	
 }

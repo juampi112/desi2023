@@ -16,70 +16,82 @@ import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.validation.Valid;
 import tuti.desi.entidades.Ciudad;
 import tuti.desi.entidades.Provincia;
+import tuti.desi.entidades.Vuelo;
 import tuti.desi.excepciones.Excepcion;
 import tuti.desi.servicios.CiudadService;
 import tuti.desi.servicios.ProvinciaService;
+import tuti.desi.servicios.VueloService;
 
 
 @Controller
-@RequestMapping("/ciudadesBuscar")
-public class CiudadesBuscarController {
-	@Autowired
-    private ProvinciaService servicioProvincia;
-   
+@RequestMapping("/programarVuelo")
+public class ProgramarVueloController {
+//	@Autowired
+//    private ProvinciaService servicioProvincia;
+//   
 	@Autowired
     private CiudadService servicioCiudad;
-   
+	@Autowired
+	private VueloService vueloService;
+//	@Autowired
+//	private Vuelo vuelo;
 	
     @RequestMapping(method=RequestMethod.GET) 
     public String preparaForm(Model modelo) {
-    	CiudadesBuscarForm form =  new CiudadesBuscarForm();// el form es el modelo 
+    	ProgramarVueloForm form =  new ProgramarVueloForm();// el form es el modelo 
 //    	 form.setProvincias(servicioProvincia.getAll());    //  en lugar de esto hacemos @ModelAttribute("allProvincias")
        modelo.addAttribute("formBean",form);
-       return "ciudadesBuscar";// hace referencia a ciudadesBuscar html
+       return "programarVuelo";// hace referencia a ciudadesBuscar html
     }
      
     
-    @ModelAttribute("allProvincias")
-    public List<Provincia> getAllProvincias() {
-        return this.servicioProvincia.getAll();
+    @ModelAttribute("allCiudades")
+    public List<Ciudad> getAllCiudades() {
+        return this.servicioCiudad.getAll();
     }
     
     @RequestMapping( method=RequestMethod.POST)//boton submit
-    public String submit( @ModelAttribute("formBean") @Valid CiudadesBuscarForm  formBean,BindingResult result, ModelMap modelo,@RequestParam String action) throws Excepcion {
+    public String submit( @ModelAttribute("formBean") @Valid ProgramarVueloForm  formBean,BindingResult result, ModelMap modelo,@RequestParam String action) throws Excepcion {
     	
     	
-    	if(action.equals("Buscar"))
+    	if(action.equals("Programar"))
     	{
     		
     		try {
-    			List<Ciudad> ciudades = servicioCiudad.filter(formBean);
-    			modelo.addAttribute("resultados",ciudades);
+    			
+    			Vuelo vuelo = new Vuelo();
+    			vuelo.setNumeroVuelo(formBean.getNumeroVuelo());
+    			vuelo.setPrecio(formBean.getPrecioVuelo());
+    			vuelo.setCiudadDestino(formBean.getCiudadSeleccionadaDestino());
+    			vuelo.setCiudadOrigen(formBean.getCiudadSeleccionadaOrigen());
+    			
+    			vueloService.save(vuelo);
+    			
+
 			} catch (Exception e) {
 				ObjectError error = new ObjectError("globalError", e.getMessage());
 	            result.addError(error);
 			}
     		
     		modelo.addAttribute("formBean",formBean);
-        	return "ciudadesBuscar";
+    		return "programarVuelo";
     	}
-    
-    	
-    	if(action.equals("Cancelar"))
-    	{
-    		modelo.clear();
-    		return "redirect:/";
-    	}
-    	
-    	if(action.equals("Registrar"))
-    	{
-    		modelo.clear();
-    		return "redirect:/ciudadEditar";
-    	}
-    		
+//    
+//    	
+//    	if(action.equals("Cancelar"))
+//    	{
+//    		modelo.clear();
+//    		return "redirect:/";
+//    	}
+//    	
+//    	if(action.equals("Registrar"))
+//    	{
+//    		modelo.clear();
+//    		return "redirect:/ciudadEditar";
+//    	}
+//    		
     	return "redirect:/";
-    	
-    	
+    	    	
     }
 
  

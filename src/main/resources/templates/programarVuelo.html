@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title><span th:text="#{ciudad.buscar.titulo}"></span></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+	<form th:action="@{/programarVuelo}" th:object="${formBean}" method="post">
+		<p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error" />
+		<table border="1" style="align-self: center;">
+
+			<tr>
+				<td><label th:text="#{vuelo.precio}" /></td>
+				<td><input type="number" th:field="*{precioVuelo}" /></td>
+			</tr>
+			<tr>
+				<td><label th:text="#{vuelo.numero}" /></td>
+				<td><input type="text" th:field="*{numeroVuelo}" /></td>
+			</tr>
+			<tr>
+				<td><label th:text="#{vuelo.ciudadOrigen.titulo}" /></td>
+				<td>
+					<select th:field="*{ciudadSeleccionadaOrigen}">
+						<option th:value="null" text="Seleccione una opción"></option>
+						<option th:each="p : ${allCiudades}" th:value="${p.id}" th:text="${p.nombre}"></option>
+					</select>
+				</td>
+			</tr>
+						<tr>
+				<td><label th:text="#{vuelo.ciudadDestino.titulo}" /></td>
+				<td>
+					<select th:field="*{ciudadSeleccionadaDestino}">
+						<option th:value="null" text="Seleccione una opción"></option>
+						<option th:each="p : ${allCiudades}" th:value="${p.id}" th:text="${p.nombre}"></option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	<table class="botones">
+
+			<tr>
+				<td><input type="submit" name="action" value="Programar" /></td>
+			
+			</tr>
+
+		</table>
+
+	</form>
+
+
+</body>
+
+</html>
