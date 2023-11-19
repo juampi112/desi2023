@@ -1,4 +1,5 @@
 package tuti.desi.presentacion;
+import java.sql.Date;
 import java.time.LocalDateTime;
 import tuti.desi.entidades.Avion;
 import tuti.desi.entidades.Ciudad;
@@ -24,7 +25,7 @@ public class VueloForm {
 	
 	private Double precio;	
 
-	private LocalDateTime fechayHora; //clase de errores usa otro
+	private Date fechayHora; //clase de errores usa otro
 	
 	private Avion avionId; 
 
@@ -66,10 +67,10 @@ public class VueloForm {
 	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
-	public LocalDateTime getFechayHora() {
+	public Date getFechayHora() {
 		return fechayHora;
 	}
-	public void setFechayHora(LocalDateTime fechayHora) {
+	public void setFechayHora(Date fechayHora) {
 		this.fechayHora = fechayHora;
 	}
 	public Avion getAvionId() {

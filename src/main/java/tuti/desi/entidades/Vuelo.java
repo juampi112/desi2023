@@ -1,16 +1,18 @@
 package tuti.desi.entidades;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Date;
+import java.sql.Time;
 
 import org.springframework.stereotype.Component;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
@@ -33,7 +35,11 @@ public class Vuelo {
 	
 	private Double precio;	
 	//ZonedDateTime
-	private LocalDateTime fechayHora; //clase de errores usa otro
+    
+	private Date fechayHora;
+	
+	@Temporal(TemporalType.TIME)
+	private Time horaVuelo;
 	
 	@ManyToOne
 	private Avion avion; 
@@ -89,11 +95,19 @@ public class Vuelo {
 	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
-	public LocalDateTime getFechayHora() {
+	public Date getFechayHora() {
 		return fechayHora;
 	}
-	public void setFechayHora(LocalDateTime fechayHora) {
+	public void setFechayHora(Date fechayHora) {
 		this.fechayHora = fechayHora;
+	}
+	
+	
+	public Time getHoraVuelo() {
+		return horaVuelo;
+	}
+	public void setHoraVuelo(Time horaVuelo) {
+		this.horaVuelo = horaVuelo;
 	}
 	public Vuelo() { // lo creaba con un super() lo borramos tiene que ir o no? lo mismo en ciudad y avion
 	}	

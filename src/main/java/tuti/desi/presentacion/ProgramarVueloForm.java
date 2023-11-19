@@ -1,14 +1,20 @@
 package tuti.desi.presentacion;
 
+import java.sql.Date;
+import java.sql.Time;
+
+import tuti.desi.entidades.Avion;
 import tuti.desi.entidades.Ciudad;
 
 public class ProgramarVueloForm {
 	private String numeroVuelo;	
 	private Double precioVuelo;
-	public Ciudad ciudadSeleccionadaOrigen;
-	public Ciudad ciudadSeleccionadaDestino;
-	
-	
+	private Ciudad ciudadSeleccionadaOrigen;
+	private Ciudad ciudadSeleccionadaDestino;
+	private String tipoDeVueloSeleccionado;
+	private Date fechaYHoraSeleccionada;
+	private Avion avionSeleccionado;
+	private Time fechaSeleccionada;
 	public String getNumeroVuelo() {
 		return numeroVuelo;
 	}
@@ -33,38 +39,30 @@ public class ProgramarVueloForm {
 	public void setCiudadSeleccionadaDestino(Ciudad ciudadSeleccionadaDestino) {
 		this.ciudadSeleccionadaDestino = ciudadSeleccionadaDestino;
 	}
-	
-	
-	
-//	private List<Provincia> provincias;
+	public String getTipoDeVueloSeleccionado() {
+		return tipoDeVueloSeleccionado;
+	}
+	public void setTipoDeVueloSeleccionado(String tipoDeVueloSeleccionado) {
+		this.tipoDeVueloSeleccionado = tipoDeVueloSeleccionado;
+	}
 
-	
-	
-//	public List<Provincia> getProvincias() {
-//		return provincias;
-//	}
-//	public void setProvincias(List<Provincia> provincias) {
-//		this.provincias = provincias;
-//	}
-	
-//	public Long getProvinciaSeleccionada() {
-//		return provinciaSeleccionada;
-//	}
-//	public void setProvinciaSeleccionada(Long provinciaSeleccionada) {
-//		this.provinciaSeleccionada = provinciaSeleccionada;
-//	}
-//	
-//	public String getNombre() {
-//		if(nombre!=null && nombre.length()>0)
-//			return nombre;
-//		else
-//			return null;
-//	}
-//	public void setNombre(String nombre) {
-//		this.nombre = nombre;
-//	}
-//	
-	
-	
+	public Date getFechaYHoraSeleccionada() {
+		return fechaYHoraSeleccionada;
+	}
+	public void setFechaYHoraSeleccionada(Date fechaYHoraSeleccionada) {
+		this.fechaYHoraSeleccionada = fechaYHoraSeleccionada;
+	}
+	public Avion getAvionSeleccionado() {
+		return avionSeleccionado;
+	}
+	public void setAvionSeleccionado(Avion avionSeleccionado) {
+		this.avionSeleccionado = avionSeleccionado;
+	}
+	public Time getFechaSeleccionada() {
+		return fechaSeleccionada;
+	}
+	public void setFechaSeleccionada(Time fechaSeleccionada) {
+		this.fechaSeleccionada = fechaSeleccionada;
+	}
 
 }

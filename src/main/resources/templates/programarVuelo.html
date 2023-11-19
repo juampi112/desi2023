@@ -9,45 +9,91 @@
 
 <body>
 	<form th:action="@{/programarVuelo}" th:object="${formBean}" method="post">
+
 		<p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error" />
-		<table border="1" style="align-self: center;">
 
-			<tr>
+		<div class="starter-template">
+			<table background-color border="1" style="align-self: center;">
+
 				<td><label th:text="#{vuelo.precio}" /></td>
-				<td><input type="number" th:field="*{precioVuelo}" /></td>
-			</tr>
-			<tr>
-				<td><label th:text="#{vuelo.numero}" /></td>
-				<td><input type="text" th:field="*{numeroVuelo}" /></td>
-			</tr>
-			<tr>
-				<td><label th:text="#{vuelo.ciudadOrigen.titulo}" /></td>
-				<td>
-					<select th:field="*{ciudadSeleccionadaOrigen}">
-						<option th:value="null" text="Seleccione una opción"></option>
-						<option th:each="p : ${allCiudades}" th:value="${p.id}" th:text="${p.nombre}"></option>
-					</select>
-				</td>
-			</tr>
-						<tr>
-				<td><label th:text="#{vuelo.ciudadDestino.titulo}" /></td>
-				<td>
-					<select th:field="*{ciudadSeleccionadaDestino}">
-						<option th:value="null" text="Seleccione una opción"></option>
-						<option th:each="p : ${allCiudades}" th:value="${p.id}" th:text="${p.nombre}"></option>
-					</select>
-				</td>
-			</tr>
-		</table>
-	<table class="botones">
+				<td><input type="number" step="0.01" pattern="^\d*(\.\d{0,2})?$" th:field="*{precioVuelo}" /></td>
+				</tr>
+				<tr>
+					<td><label th:text="#{vuelo.numero}" /></td>
+					<td><input type="text" th:field="*{numeroVuelo}" /></td>
+				</tr>
+				<tr>
+					<td><label th:text="#{vuelo.ciudadOrigen.titulo}" /></td>
+					<td>
+						<select th:field="*{ciudadSeleccionadaOrigen}">
+							<option th:value="null" text="Seleccione una opción"></option>
+							<option th:each="p : ${allCiudades}" th:value="${p.id}" th:text="${p.nombre}"></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><label th:text="#{vuelo.ciudadDestino.titulo}" /></td>
+					<td>
+						<select th:field="*{ciudadSeleccionadaDestino}">
+							<option th:value="null" text="Seleccione una opción"></option>
+							<option th:each="p : ${allCiudades}" th:value="${p.id}" th:text="${p.nombre}"></option>
+						</select>
+					</td>
+				</tr>
 
+				<tr>
+					<td><label for="tipoViaje">Selecciona el tipo de viaje:</label></td>
+					<td>
+						<select  th:field="*{tipoDeVueloSeleccionado}" id="tipoViaje" name="tipoViaje">
+							<option value="nacional">Nacional</option>
+							<option value="internacional">Internacional</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td><label th:text="#{avion.texto}" /></td>
+					<td>
+						<select th:field="*{avionSeleccionado}">
+							<option th:value="null" text="Seleccione una opción"></option>
+							<option th:each="p : ${allAvionesDisponibles}" th:value="${p.id}" th:text="${p.nombre}"></option>
+						</select>
+					</td>
+				</tr>
+				
+				
+				
+				<tr>
+					<td><label th:text="#{fechayHoraText}" /></td>
+					<td><input type="date" required th:field="*{fechaYHoraSeleccionada}" /></td>
+
+				</tr>
 			<tr>
-				<td><input type="submit" name="action" value="Programar" /></td>
-			
-			</tr>
+					<td><label th:text="#{HoraText}" /></td>
+					<td><input type="time" required th:field="*{fechaSeleccionada}" /></td>
 
-		</table>
+				</tr>
 
+			</table>
+		</div>
+		<div class="starter-template">
+
+
+
+
+
+
+
+
+
+			<table>
+
+				<tr>
+					<td><input class="custom-btn btn-16" type="submit" name="action" value="Programar" /></td>
+				</tr>
+
+			</table>
+		</div>
 	</form>
 
 

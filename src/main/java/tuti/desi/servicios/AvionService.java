@@ -1,5 +1,9 @@
 package tuti.desi.servicios;
 
+import java.util.List;
+
+import tuti.desi.entidades.Avion;
+import tuti.desi.entidades.Ciudad;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.excepciones.Excepcion;
 /**
@@ -8,10 +12,9 @@ import tuti.desi.excepciones.Excepcion;
  * @version 1.0
  */
 
-public interface VueloService {
+public interface AvionService {
 
 	
+	List<Avion> getAll();
 
-	Vuelo save(Vuelo v) throws Excepcion;
-	
 }

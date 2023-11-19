@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.validation.Valid;
+import tuti.desi.entidades.Avion;
 import tuti.desi.entidades.Ciudad;
 import tuti.desi.entidades.Provincia;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.excepciones.Excepcion;
+import tuti.desi.servicios.AvionService;
 import tuti.desi.servicios.CiudadService;
 import tuti.desi.servicios.ProvinciaService;
 import tuti.desi.servicios.VueloService;
@@ -33,8 +35,11 @@ public class ProgramarVueloController {
     private CiudadService servicioCiudad;
 	@Autowired
 	private VueloService vueloService;
-//	@Autowired
-//	private Vuelo vuelo;
+	@Autowired
+	private AvionService servicioAvion;
+	
+	
+	
 	
     @RequestMapping(method=RequestMethod.GET) 
     public String preparaForm(Model modelo) {
@@ -48,6 +53,12 @@ public class ProgramarVueloController {
     @ModelAttribute("allCiudades")
     public List<Ciudad> getAllCiudades() {
         return this.servicioCiudad.getAll();
+    }
+    
+    
+    @ModelAttribute("allAvionesDisponibles")
+    public List<Avion> allAvionesDisponibles() {
+        return this.servicioAvion.getAll();
     }
     
     @RequestMapping( method=RequestMethod.POST)//boton submit
@@ -64,8 +75,13 @@ public class ProgramarVueloController {
     			vuelo.setPrecio(formBean.getPrecioVuelo());
     			vuelo.setCiudadDestino(formBean.getCiudadSeleccionadaDestino());
     			vuelo.setCiudadOrigen(formBean.getCiudadSeleccionadaOrigen());
-    			
+    			vuelo.setTipoDeVuelo(formBean.getTipoDeVueloSeleccionado());
+    			vuelo.setAvion(formBean.getAvionSeleccionado());
+    			vuelo.setFechayHora(formBean.getFechaYHoraSeleccionada());
+    			vuelo.setHoraVuelo(formBean.getFechaSeleccionada());
     			vueloService.save(vuelo);
+    			
+    			return "redirect:/programarVuelo";
     			
 
 			} catch (Exception e) {
