@@ -63,32 +63,44 @@ public class ProgramarVueloController {
     
     @RequestMapping( method=RequestMethod.POST)//boton submit
     public String submit( @ModelAttribute("formBean") @Valid ProgramarVueloForm  formBean,BindingResult result, ModelMap modelo,@RequestParam String action) throws Excepcion {
-    	
-    	
-    	if(action.equals("Programar"))
-    	{
-    		
-    		try {
-    			
-    			Vuelo vuelo = new Vuelo();
-    			vuelo.setNumeroVuelo(formBean.getNumeroVuelo());
-    			vuelo.setPrecio(formBean.getPrecioVuelo());
-    			vuelo.setCiudadDestino(formBean.getCiudadSeleccionadaDestino());
-    			vuelo.setCiudadOrigen(formBean.getCiudadSeleccionadaOrigen());
-    			vuelo.setTipoDeVuelo(formBean.getTipoDeVueloSeleccionado());
-    			vuelo.setAvion(formBean.getAvionSeleccionado());
-    			vuelo.setFechayHora(formBean.getFechaYHoraSeleccionada());
-    			vuelo.setHoraVuelo(formBean.getFechaSeleccionada());
-    			vueloService.save(vuelo);
-    			
-    			return "redirect:/programarVuelo";
-    			
 
-			} catch (Exception e) {
-				ObjectError error = new ObjectError("globalError", e.getMessage());
-	            result.addError(error);
-			}
-    		
+    	if(action.equals("Programar"))
+    	{      	
+    		if(vueloService.exist(formBean.getNumeroVuelo()) ) {
+    			ObjectError error = new ObjectError("globalError", "Numero de vuelo repetido");
+    			result.addError(error);
+    		}
+    		else if(vueloService.existVueloRepetido(formBean.getAvionSeleccionado(), formBean.getFechaYHoraSeleccionada())) {
+    			ObjectError error = new ObjectError("globalError", "Ese avion ya tiene asignado vuelo para ese dia");
+    			result.addError(error);
+    		}
+    		else if(formBean.getCiudadSeleccionadaDestino().equals(formBean.getCiudadSeleccionadaOrigen())) {
+    			ObjectError error = new ObjectError("globalError", "No puede elegir dos ciudades iguales");
+    			result.addError(error);
+    		}
+    		else {
+	    		try {
+	    			
+	    			Vuelo vuelo = new Vuelo();
+	    			vuelo.setNumeroVuelo(formBean.getNumeroVuelo());
+	    			vuelo.setPrecio(formBean.getPrecioVuelo());
+	    			vuelo.setCiudadDestino(formBean.getCiudadSeleccionadaDestino());
+	    			vuelo.setCiudadOrigen(formBean.getCiudadSeleccionadaOrigen());
+	    			vuelo.setTipoDeVuelo(formBean.getTipoDeVueloSeleccionado());
+	    			vuelo.setAvion(formBean.getAvionSeleccionado());
+	    			vuelo.setFechayHora(formBean.getFechaYHoraSeleccionada());
+	    			vuelo.setHoraVuelo(formBean.getHoraVuelo());
+	    			
+	    			vueloService.save(vuelo);
+	    			
+	    			return "redirect:/programarVuelo";
+	    			
+	
+				} catch (Exception e) {
+					ObjectError error = new ObjectError("globalError", e.getMessage());
+		            result.addError(error);
+				}
+    		}
     		modelo.addAttribute("formBean",formBean);
     		return "programarVuelo";
     	}

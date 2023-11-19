@@ -38,7 +38,6 @@ public class Vuelo {
     
 	private Date fechayHora;
 	
-	@Temporal(TemporalType.TIME)
 	private Time horaVuelo;
 	
 	@ManyToOne
@@ -101,8 +100,6 @@ public class Vuelo {
 	public void setFechayHora(Date fechayHora) {
 		this.fechayHora = fechayHora;
 	}
-	
-	
 	public Time getHoraVuelo() {
 		return horaVuelo;
 	}
