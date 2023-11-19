@@ -1,107 +1,144 @@
 @charset "ISO-8859-1";
 @import url(https://fonts.googleapis.com/css2?family=REM:wght@100;200;400;500;600;700;800&display=swap);
-html{
-	background-image: url("../img2.png");	   
+
+html {
+	background-image: url("../img2.png");
 	background-color: lightgray;
-    background-size: cover; /* Ajusta la imagen para que cubra toda la página */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
-    margin: 0; /* Elimina el margen predeterminado del body */
-    padding: 0; /* Elimina el padding predeterminado del body */
-    height: 100%;
+	background-size: cover;
+	/* Ajusta la imagen para que cubra toda la página */
+	background-repeat: no-repeat;
+	/* Evita que la imagen se repita */
+	background-attachment: fixed;
+	/* Mantiene la imagen fija al hacer scroll */
+	margin: 0;
+	/* Elimina el margen predeterminado del body */
+	padding: 0;
+	/* Elimina el padding predeterminado del body */
+	height: 100%;
 }
+
 body {
-  padding-top: 5rem;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  text-transform: uppercase; 
-  font-weight: bold;
+	padding-top: 5rem;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	text-transform: uppercase;
+	font-weight: bold;
 }
+
 .starter-template {
 	padding-top: 1rem;
-  display: flex;
-  justify-content: center; /* Centrar horizontalmente */
-  text-align: center;
+	display: flex;
+	justify-content: center;
+	/* Centrar horizontalmente */
+	text-align: center;
 }
 
-
-h1{
-	color:#0000FF;
+.contenedorGeneral {
+	background-color: rgb(250, 252, 243);
+	width: 500px;
+	display: grid;
+	margin: auto;
+}
+.perimeraparte{
+	
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+}
+.segundaparte{
+	
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	padding-bottom: 15px;
 }
 
-h2{
-	color:#FF0000;
+h1 {
+	color: #0000FF;
+}
+
+h2 {
+	color: #FF0000;
 }
 
 .resultados th {
-  background-color: #4CAF50;
-  color: white;
+	background-color: #4CAF50;
+	color: white;
 }
 
-.resultados tr:nth-child(even) {background-color: #f2f2f2;}
+.resultados tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
 
-.resultados table{
-  width: 100%;
+.resultados table {
+	width: 100%;
 }
 
 
 
 button {
-  margin: 20px;
+	margin: 20px;
 }
+
 .custom-btn {
-	
-  width: 130px;
-  height: 40px;
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 500;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-  outline: none;
+
+	width: 130px;
+	height: 40px;
+	color: #fff;
+	border-radius: 5px;
+	padding: 10px 25px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 500;
+	background: transparent;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	display: inline-block;
+	box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+		7px 7px 20px 0px rgba(0, 0, 0, .1),
+		4px 4px 5px 0px rgba(0, 0, 0, .1);
+	outline: none;
 }
-table.botones tr{
-margin-top: 10;
-float: left;
+
+table.botones tr {
+	margin-top: 10;
+	float: left;
 }
+
 .error {
-    color: red;
+	color: red;
 }
+
 .btn-16 {
-  border: none;
-  color: #000;
+	border: none;
+	color: #000;
+	background-color: rgb(230, 232, 223);
 }
+
 .btn-16:after {
-  position: absolute;
-  content: "";
-  width: 0;
-  height: 100%;
-  top: 0;
-  left: 0;
-  direction: rtl;
-  z-index: -1;
-  box-shadow:
-   -7px -7px 20px 0px #fff9,
-   -4px -4px 5px 0px #fff9,
-   7px 7px 20px 0px #0002,
-   4px 4px 5px 0px #0001;
-  transition: all 0.3s ease;
+	position: absolute;
+	content: "";
+	width: 0;
+	height: 100%;
+	top: 0;
+	left: 0;
+	direction: rtl;
+	z-index: -1;
+	box-shadow:
+		-7px -7px 20px 0px #fff9,
+		-4px -4px 5px 0px #fff9,
+		7px 7px 20px 0px #0002,
+		4px 4px 5px 0px #0001;
+	transition: all 0.3s ease;
 }
+
 .btn-16:hover {
-  color: #000;
+	color: #000;
 }
+
 .btn-16:hover:after {
-  left: auto;
-  right: 0;
-  width: 100%;
+	left: auto;
+	right: 0;
+	width: 100%;
 }
+
 .btn-16:active {
-  top: 2px;
+	top: 2px;
 }
