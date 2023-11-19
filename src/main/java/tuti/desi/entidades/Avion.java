@@ -8,8 +8,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Transient;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
+@NotNull
 public class Avion {
 	
 	@Id
@@ -18,18 +21,20 @@ public class Avion {
 	
 	private String nombre;
 	
-	@OneToMany(mappedBy = "avion")
+	@OneToMany(mappedBy = "avion") //VER RELACION BIDIRECCIONAL
 	private List<Vuelo> vuelos;	
 	
-	private int fila;
+	private int cantidadFilas;
 	
-	private int asiento;
+	private int cantidadAsientos;
 	
+	@Transient // este atributo hace q no se guarde en la base VER
 	private int capacidad = calcularCapacidad();
 	
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -46,24 +51,29 @@ public class Avion {
 	public void setVuelos(List<Vuelo> vuelos) {
 		this.vuelos = vuelos;
 	}
-	public int getFila() {
-		return fila;
+	public int getCantidadFilas() {
+		return cantidadFilas;
 	}
-	public void setFila(int fila) {
-		this.fila = fila;
-		//calcularCapacidad(); creo que deberia ir 
+	public void setCantidadFilas(int cantidadFilas) {
+		this.cantidadFilas = cantidadFilas;
 	}
-	public int getAsiento() {
-		return asiento;
+	public int getCantidadAsientos() {
+		return cantidadAsientos;
 	}
-	public void setAsiento(int asiento) {
-		this.asiento = asiento;
-		//calcularCapacidad(); creo que deberia ir 
+	public void setCantidadAsientos(int cantidadAsientos) {
+		this.cantidadAsientos = cantidadAsientos;
 	}
 	public int getCapacidad() {
 		return capacidad;
-	}	
-	private int calcularCapacidad() {
-		return this.fila * this.asiento;
 	}
+	
+	private int calcularCapacidad() {
+		
+		return this.cantidadFilas * this.cantidadAsientos;
+	}
+
+	public Avion() {
+	}
+	
+
 }
