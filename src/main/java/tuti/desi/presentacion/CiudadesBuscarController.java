@@ -31,12 +31,12 @@ public class CiudadesBuscarController {
     private CiudadService servicioCiudad;
    
 	
-    @RequestMapping(method=RequestMethod.GET)
+    @RequestMapping(method=RequestMethod.GET) 
     public String preparaForm(Model modelo) {
-    	CiudadesBuscarForm form =  new CiudadesBuscarForm();
+    	CiudadesBuscarForm form =  new CiudadesBuscarForm();// el form es el modelo 
 //    	 form.setProvincias(servicioProvincia.getAll());    //  en lugar de esto hacemos @ModelAttribute("allProvincias")
        modelo.addAttribute("formBean",form);
-       return "ciudadesBuscar";
+       return "ciudadesBuscar";// hace referencia a ciudadesBuscar html
     }
      
     
@@ -45,7 +45,7 @@ public class CiudadesBuscarController {
         return this.servicioProvincia.getAll();
     }
     
-    @RequestMapping( method=RequestMethod.POST)
+    @RequestMapping( method=RequestMethod.POST)//boton submit
     public String submit( @ModelAttribute("formBean") @Valid CiudadesBuscarForm  formBean,BindingResult result, ModelMap modelo,@RequestParam String action) throws Excepcion {
     	
     	
