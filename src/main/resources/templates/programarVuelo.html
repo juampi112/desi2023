@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title><span th:text="#{ciudad.buscar.titulo}"></span></title>
+	<title>Peogramar vuelo</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" th:href="@{/css/main.css}" />
 </head>
@@ -60,14 +60,13 @@
 			</div>
 		</div>
 		<div class="starter-template contenedorGeneral segundaparte">
-			<table>
-				<tr>
-					<td><input class="custom-btn btn-16" type="submit" name="action" value="Programar" /></td>
-				</tr>
-			</table>
+			<input class="custom-btn btn-16" type="submit" name="action" value="Programar" />
 		</div>
 	</form>
-
+	
+	<div class="div-volver">
+		<a class="custom-btn btn-16 volver" th:href="@{/}">Volver al Inicio</a>
+	</div>
 
 </body>
 

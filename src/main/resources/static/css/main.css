@@ -122,11 +122,12 @@ table.botones tr {
 	direction: rtl;
 	z-index: -1;
 	box-shadow:
-		-7px -7px 20px 0px #fff9,
-		-4px -4px 5px 0px #fff9,
+		-7px -7px 20px 0px rgb(255, 255, 255),
+		-4px -4px 5px 0px rgb(255, 255, 255),
 		7px 7px 20px 0px #0002,
 		4px 4px 5px 0px #0001;
 	transition: all 0.3s ease;
+	border-radius: 10px;
 }
 
 .btn-16:hover {
@@ -248,4 +249,29 @@ select:focus{
     padding-left: 10px;
     padding-right: 10px;
 }	
-	
+.Bienvenido{
+	font-size: 3rem;
+    color: #777; 
+    background-color: #FAFCF3; 
+    border-radius: 25px;
+    height: auto;
+    width: 400px;
+    text-decoration: underline;
+}	
+.div-volver{
+	position: absolute;
+	top: 90px;
+}
+.volver{
+    left: 30%;
+    font-size: larger;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #FAFCF3; 
+}
+.botonIRprogramarVuelo{
+    font-size: larger;
+    text-decoration: none;
+    left: 50px;
+    border-radius: 10px;
+}
