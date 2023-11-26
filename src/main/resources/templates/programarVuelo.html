@@ -13,65 +13,51 @@
 		<p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error" />
 
 		<div class="starter-template contenedorGeneral perimeraparte">
-			<table background-color border="1" style="align-self: center;">
-				<td><label th:text="#{vuelo.precio}" /></td>
-				<td><input required type="number" step="0.01" pattern="^\d*(\.\d{0,2})?$" th:field="*{precioVuelo}" />
-				</td>
-				</tr>
-				<tr>
-					<div class="input-group">
-						<input required type="text" th:field="*{numeroVuelo}" class="input" id="numvuelo"/>
-						<label th:text="#{vuelo.numero}" class="label" for="numvuelo"/>
-					</div>
-				</tr>
-				<tr>
-					<td><label th:text="#{vuelo.ciudadOrigen.titulo}" /></td>
-					<td>
-						<select required th:field="*{ciudadSeleccionadaOrigen}">
-							<option th:value="null" text="Seleccione una opción"></option>
-							<option th:each="p : ${allCiudades}" th:value="${p.id}" th:text="${p.nombre}"></option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td><label th:text="#{vuelo.ciudadDestino.titulo}" /></td>
-					<td>
-						<select required th:field="*{ciudadSeleccionadaDestino}">
-							<option th:value="null" text="Seleccione una opción"></option>
-							<option th:each="p : ${allCiudades}" th:value="${p.id}" th:text="${p.nombre}"></option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td><label for="tipoViaje">Selecciona el tipo de viaje:</label></td>
-					<td>
-						<select required th:field="*{tipoDeVueloSeleccionado}" id="tipoViaje" name="tipoViaje">
-							<option value=""></option>
-							<option value="nacional">Nacional</option>
-							<option value="internacional">Internacional</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td><label th:text="#{avion.texto}" /></td>
-					<td>
-						<select required th:field="*{avionSeleccionado}">
-							<option th:value="null" text="Seleccione una opción"></option>
-							<option th:each="p : ${allAvionesDisponibles}" th:value="${p.id}" th:text="${p.nombre}">
-							</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td><label th:text="#{fechayHoraText}" /></td>
-					<td><input type="date" required th:field="*{fechaYHoraSeleccionada}" /></td>
-				</tr>
-				<tr>
-					<td><label th:text="#{HoraText}" /></td>
-					
-					<td><input type="time" step="1" required th:field="*{horaVuelo}" /></td>
-				</tr>
-			</table>
+			<div class="input-group">
+				<input required type="number" step="0.01" pattern="^\d*(\.\d{0,2})?$" th:field="*{precioVuelo}" class="input" id="precio"/>
+				<label th:text="#{vuelo.precio}" class="label" for="precio"/>
+			</div>
+			<div class="input-group">
+				<input required type="text" th:field="*{numeroVuelo}" class="input" id="numvuelo"/>
+				<label th:text="#{vuelo.numero}" class="label" for="numvuelo"/>
+			</div>
+			<div class="input-group">			
+				<select required th:field="*{ciudadSeleccionadaOrigen}" class="select" id="ciudadOr">
+					<option class="option" th:value="null" text="Seleccione una opción"></option>
+					<option class="option" th:each="p : ${allCiudades}" th:value="${p.id}" th:text="${p.nombre}"></option>
+				</select>					
+				<label th:text="#{vuelo.ciudadOrigen.titulo}" class="label" for="ciudadOr"/>	
+			</div>						
+			<div class="input-group">			
+				<select required th:field="*{ciudadSeleccionadaDestino}" class="select" id="ciudadDes">
+					<option class="option" th:value="null" text="Seleccione una opción"></option>
+					<option class="option" th:each="p : ${allCiudades}" th:value="${p.id}" th:text="${p.nombre}"></option>
+				</select>					
+				<label th:text="#{vuelo.ciudadDestino.titulo}" class="label" for="ciudadDes"/>	
+			</div>	
+			<div class="input-group">			
+				<select required th:field="*{ciudadSeleccionadaDestino}" class="select" id="tipoViaje">
+					<option class="option" value=""></option>
+					<option class="option" value="nacional">Nacional</option>
+					<option class="option" value="internacional">Internacional</option>					
+				</select>					
+				<label th:text="#{tipo.viaje}" class="label" for="tipoViaje"/>	
+			</div>
+			<div class="input-group">			
+				<select required th:field="*{avionSeleccionado}" class="select" id="avion">
+					<option class="option" th:value="null" text="Seleccione una opción"></option>
+					<option class="option" th:each="p : ${allAvionesDisponibles}" th:value="${p.id}" th:text="${p.nombre}"></option>							
+				</select>					
+				<label th:text="#{avion.texto}" class="label" for="avion"/>	
+			</div>
+			<div class="input-group">			
+				<input required type="date" th:field="*{fechaYHoraSeleccionada}" class="fecha_hora" id="fecha"/>					
+				<label th:text="#{fechayHoraText}" class="label_fecha_hora" for="fecha"/>	
+			</div>		
+			<div class="input-group">			
+				<input required type="time" step="1" th:field="*{horaVuelo}" class="fecha_hora" id="hora"/>					
+				<label th:text="#{HoraText}" class="label_fecha_hora" for="hora"/>	
+			</div>
 		</div>
 		<div class="starter-template contenedorGeneral segundaparte">
 			<table>
