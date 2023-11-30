@@ -15,6 +15,7 @@ public class ProgramarVueloForm {
 	private Date fechaYHoraSeleccionada;
 	private Avion avionSeleccionado;
 	private Time horaVuelo;
+	
 	public String getNumeroVuelo() {
 		return numeroVuelo;
 	}

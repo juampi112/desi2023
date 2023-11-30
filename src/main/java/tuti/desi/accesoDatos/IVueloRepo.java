@@ -13,13 +13,6 @@ import tuti.desi.entidades.Vuelo;
 
 @Repository
 public interface IVueloRepo extends JpaRepository<Vuelo, Long> {
-
-
-//	@Query("SELECT c FROM Ciudad c WHERE c.nombre like ?1 or c.provincia.id=?2")
-//	List<Ciudad> findByNombreOrIdProvincia(String nombre, Long idProvinciaSeleccionada);
-//	
-//	@Query("SELECT c FROM Ciudad c WHERE c.nombre like ?1 and c.provincia.id=?2")
-//	List<Ciudad> findByNombreAndIdProvincia(String nombre, Long idProvinciaSeleccionada);
 	
 	Vuelo findBynumeroVuelo(String numeroVuelo);
 

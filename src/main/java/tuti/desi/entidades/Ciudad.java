@@ -1,13 +1,10 @@
 package tuti.desi.entidades;
-
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+
 
 @Entity
 public class Ciudad {
@@ -21,11 +18,6 @@ public class Ciudad {
 	@ManyToOne
 	private Provincia provincia;
 	
-//	@OneToMany(mappedBy = "ciudadOrigen")   esto mapea una relacion bidireccional, creemos q ciudad y vuelo es uni, porque cuidad 
-//	private List<Vuelo> vuelo_ciudadOrigen;	       no necesita saber nada sobre el vuelo (VER!)
-//	
-//	@OneToMany(mappedBy = "ciudadDestino")
-//	private List<Vuelo> vuelo_ciudadDestino;	
 	
 	public Long getId() {
 		return id;

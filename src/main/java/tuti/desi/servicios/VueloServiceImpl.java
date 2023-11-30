@@ -1,7 +1,4 @@
-/**
- * @author kuttel
- *
- */
+
 package tuti.desi.servicios;
 
 
@@ -17,8 +14,7 @@ import tuti.desi.excepciones.Excepcion;
 
 @Service
 public class VueloServiceImpl implements VueloService {
-//	Logger LOG = LoggerFactory.getLogger(CiudadService.class);
-//	
+
 	@Autowired
 	private IVueloRepo repo;
 
@@ -28,9 +24,7 @@ public class VueloServiceImpl implements VueloService {
 
 	@Override
 	public Vuelo save(Vuelo v) throws Excepcion {
-//		if(c.getId()==null && !repo.findByNombreAndIdProvincia(c.getNombre(), c.getProvincia().getId()).isEmpty()) //estoy dando de alta una nueva ciudad y ya existe una igual?
-//			throw new Excepcion("Ya existe una ciudad con el mismo nombre, para la misma provincia");  
-//		else
+
 			return repo.save(v);
 		
 	}
@@ -39,20 +33,14 @@ public class VueloServiceImpl implements VueloService {
 	//el numero de vuelo debe ser unico
 	@Override
 	public boolean exist(String numVuelo) throws Excepcion {
-//		if(c.getId()==null && !repo.findByNombreAndIdProvincia(c.getNombre(), c.getProvincia().getId()).isEmpty()) //estoy dando de alta una nueva ciudad y ya existe una igual?
-//			throw new Excepcion("Ya existe una ciudad con el mismo nombre, para la misma provincia");  
-//		else
-			//return repo.save(v);
+
 		return repo.findBynumeroVuelo(numVuelo)!=null;
 	}
 	
 	
 	@Override
 	public boolean existVueloRepetido(Avion avion,Date fechayHora) throws Excepcion {
-//		if(c.getId()==null && !repo.findByNombreAndIdProvincia(c.getNombre(), c.getProvincia().getId()).isEmpty()) //estoy dando de alta una nueva ciudad y ya existe una igual?
-//			throw new Excepcion("Ya existe una ciudad con el mismo nombre, para la misma provincia");  
-//		else
-			//return repo.save(v);
+
 		return repo.findByAvionAndFechaYHora(avion, fechayHora) != null;
 
 	}

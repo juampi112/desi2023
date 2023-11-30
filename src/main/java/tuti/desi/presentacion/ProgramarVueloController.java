@@ -16,21 +16,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.validation.Valid;
 import tuti.desi.entidades.Avion;
 import tuti.desi.entidades.Ciudad;
-import tuti.desi.entidades.Provincia;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.excepciones.Excepcion;
 import tuti.desi.servicios.AvionService;
 import tuti.desi.servicios.CiudadService;
-import tuti.desi.servicios.ProvinciaService;
 import tuti.desi.servicios.VueloService;
 
 
 @Controller
 @RequestMapping("/programarVuelo")
 public class ProgramarVueloController {
-//	@Autowired
-//    private ProvinciaService servicioProvincia;
-//   
 	@Autowired
     private CiudadService servicioCiudad;
 	@Autowired
@@ -43,10 +38,9 @@ public class ProgramarVueloController {
 	
     @RequestMapping(method=RequestMethod.GET) 
     public String preparaForm(Model modelo) {
-    	ProgramarVueloForm form =  new ProgramarVueloForm();// el form es el modelo 
-//    	 form.setProvincias(servicioProvincia.getAll());    //  en lugar de esto hacemos @ModelAttribute("allProvincias")
+    	ProgramarVueloForm form =  new ProgramarVueloForm();
        modelo.addAttribute("formBean",form);
-       return "programarVuelo";// hace referencia a ciudadesBuscar html
+       return "programarVuelo";
     }
      
     
@@ -104,20 +98,6 @@ public class ProgramarVueloController {
     		modelo.addAttribute("formBean",formBean);
     		return "programarVuelo";
     	}
-//    
-//    	
-//    	if(action.equals("Cancelar"))
-//    	{
-//    		modelo.clear();
-//    		return "redirect:/";
-//    	}
-//    	
-//    	if(action.equals("Registrar"))
-//    	{
-//    		modelo.clear();
-//    		return "redirect:/ciudadEditar";
-//    	}
-//    		
     	return "redirect:/";
     	    	
     }

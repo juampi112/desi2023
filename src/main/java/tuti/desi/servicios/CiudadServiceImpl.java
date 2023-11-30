@@ -1,7 +1,3 @@
-/**
- * @author kuttel
- *
- */
 package tuti.desi.servicios;
 
 import java.util.List;
@@ -16,8 +12,7 @@ import tuti.desi.presentacion.CiudadesBuscarForm;
 
 @Service
 public class CiudadServiceImpl implements CiudadService {
-//	Logger LOG = LoggerFactory.getLogger(CiudadService.class);
-//	
+
 	@Autowired
 	ICiudadRepo repo;
 

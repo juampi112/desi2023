@@ -21,14 +21,14 @@ public class Avion {
 	
 	private String nombre;
 	
-	@OneToMany(mappedBy = "avion") //VER RELACION BIDIRECCIONAL
+	@OneToMany(mappedBy = "avion") 
 	private List<Vuelo> vuelos;	
 	
 	private int cantidadFilas;
 	
 	private int cantidadAsientos;
 	
-	@Transient // este atributo hace q no se guarde en la base VER
+	@Transient 
 	private int capacidad = calcularCapacidad();
 	
 	public Long getId() {

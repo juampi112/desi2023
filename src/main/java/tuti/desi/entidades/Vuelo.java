@@ -16,7 +16,7 @@ import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-//@NotNull
+@NotNull
 @Component
 public class Vuelo {
 	
@@ -31,7 +31,7 @@ public class Vuelo {
 	@ManyToOne
 	private Ciudad ciudadDestino; 
 	
-	private String TipoDeVuelo; //nacional o internacional dropdown? precargado
+	private String TipoDeVuelo; 
 	
 	private Double precio;	
 	//ZonedDateTime
@@ -106,7 +106,7 @@ public class Vuelo {
 	public void setHoraVuelo(Time horaVuelo) {
 		this.horaVuelo = horaVuelo;
 	}
-	public Vuelo() { // lo creaba con un super() lo borramos tiene que ir o no? lo mismo en ciudad y avion
+	public Vuelo() {
 	}	
 	
 	
