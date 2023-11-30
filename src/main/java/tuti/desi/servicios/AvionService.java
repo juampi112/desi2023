@@ -7,10 +7,8 @@ import tuti.desi.entidades.Ciudad;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.excepciones.Excepcion;
 /**
- * Clase que permite gestionar la entidad Ciudad en el sistema.
- * @author kuttel
- * @version 1.0
- */
+ * Clase que permite gestionar la entidad Avion en el sistema.
+**/
 
 public interface AvionService {
 

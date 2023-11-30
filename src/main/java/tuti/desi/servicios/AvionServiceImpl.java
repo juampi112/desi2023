@@ -1,7 +1,3 @@
-/**
- * @author kuttel
- *
- */
 package tuti.desi.servicios;
 
 
