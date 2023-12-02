@@ -16,7 +16,7 @@
 		</h2>
 	</div>
 
-	<form th:action="@{/consultaVuelo.html}" th:object="${formBean}" method="post">
+	<form th:action="@{/consultaVuelo}" th:object="${formBean}" method="post">
 		<p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error" />
 		<table border="1" style="align-self: center;">		
 			<tr>
@@ -55,7 +55,7 @@
 		<table class="botones">
 
 			<tr>
-				<td><input type="submit" name="action" value="BuscarVuelo" /></td>
+				<td><input type="submit" name="action" value="BuscarVuelos" /></td>
 			</tr>
 
 		</table>
@@ -63,6 +63,7 @@
 			<thead>
 				<tr>
 					<th><label th:text="#{consulta.vuelo.fechaResultado}" /></th>
+					<th><label th:text="#{consulta.vuelo.hora}" /></th>
 					<th><label th:text="#{consulta.vuelo.numero}" /></th>
 					<th><label th:text="#{consulta.vuelo.tipo}" /></th>
 					<th><label th:text="#{consulta.vuelo.Estado}" /></th>
@@ -73,13 +74,12 @@
 			</thead>
 			<tbody>
 				<tr th:each="v : ${resultadosVuelos}">
-					<td th:text="${{v}}"></td>
-					<!--<td th:text="${{v.fechaVuelo}}"></td>
+					<td th:text="${{v.fechaVuelo}}"></td>
 					<td th:text="${{v.horaVuelo}}"></td>
 					<td th:text="${{v.numeroVuelo}}"></td>
 					<td th:text="${{v.TipoDeVuelo}}"></td>
 					<td th:text="${{v.estado}}"></td>
-					<td th:text="${{v.avion.capacidad}}"></td>		-->			
+					<td th:text="${{v.capacidad}}"></td>		
 				</tr>
 			</tbody>
 		</table>

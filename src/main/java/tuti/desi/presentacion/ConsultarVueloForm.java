@@ -2,10 +2,12 @@ package tuti.desi.presentacion;
 
 import java.sql.Date;
 
+import tuti.desi.entidades.Ciudad;
+
 public class ConsultarVueloForm {
 	private Date fechaAconsultar;
-	private Long ciudadOrigen_Aconsultar;
-	private Long ciudadDestino_Aconsultar;
+	private Ciudad ciudadOrigen_Aconsultar;
+	private Ciudad ciudadDestino_Aconsultar;
 	private String tipoDeVuelo_Aconsultar;
 
 	public Date getFechaAconsultar() {
@@ -16,19 +18,19 @@ public class ConsultarVueloForm {
 		this.fechaAconsultar = fechaAconsultar;
 	}
 
-	public Long getCiudadOrigen_Aconsultar() {
+	public Ciudad getCiudadOrigen_Aconsultar() {
 		return ciudadOrigen_Aconsultar;
 	}
 
-	public void setCiudadOrigen_Aconsultar(Long ciudadOrigen_Aconsultar) {
+	public void setCiudadOrigen_Aconsultar(Ciudad ciudadOrigen_Aconsultar) {
 		this.ciudadOrigen_Aconsultar = ciudadOrigen_Aconsultar;
 	}
 
-	public Long getCiudadDestino_Aconsultar() {
+	public Ciudad getCiudadDestino_Aconsultar() {
 		return ciudadDestino_Aconsultar;
 	}
 
-	public void setCiudadDestino_Aconsultar(Long ciudadDestino_Aconsultar) {
+	public void setCiudadDestino_Aconsultar(Ciudad ciudadDestino_Aconsultar) {
 		this.ciudadDestino_Aconsultar = ciudadDestino_Aconsultar;
 	}
 

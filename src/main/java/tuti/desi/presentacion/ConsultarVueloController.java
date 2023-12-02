@@ -11,16 +11,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.validation.Valid;
+import tuti.desi.entidades.Ciudad;
+import tuti.desi.entidades.ConsultaVuelo;
+import tuti.desi.entidades.Provincia;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.excepciones.Excepcion;
+import tuti.desi.servicios.AvionService;
+import tuti.desi.servicios.CiudadService;
 import tuti.desi.servicios.ConsultarVueloService;
+import tuti.desi.servicios.ProvinciaService;
+import tuti.desi.servicios.VueloService;
 
 @Controller
 @RequestMapping("/consultaVuelo")
 public class ConsultarVueloController {
 	@Autowired
     private ConsultarVueloService servicioConsultarVuelo;
-   
+	@Autowired
+	private CiudadService servicioCiudad;
+	@Autowired
+    private VueloService servicioVuelo;
+	
+	@ModelAttribute("allCiudades")
+	
+	public List<Ciudad> getAllCiudades() {
+		return this.servicioCiudad.getAll();
+	}
    
 	
     @RequestMapping(method=RequestMethod.GET) 
@@ -30,14 +46,16 @@ public class ConsultarVueloController {
        return "consultaVuelo";
     }
      
+    
     @RequestMapping( method=RequestMethod.POST)
     public String submit( @ModelAttribute("formBean") @Valid ConsultarVueloForm  formBean,BindingResult result, ModelMap modelo,@RequestParam String action) throws Excepcion {
 	
     	if(action.equals("BuscarVuelos"))
     	{  		
     		try {
-    			List<Vuelo> vuelos = servicioConsultarVuelo.findByDate(formBean); //cambiar el findByDate
+    			List<ConsultaVuelo> vuelos = servicioConsultarVuelo.findByParameters(formBean); //cambiar el findByDate
     			modelo.addAttribute("resultadosVuelos",vuelos);
+    			System.out.println(vuelos);
 			} catch (Exception e) {
 				ObjectError error = new ObjectError("globalError", e.getMessage());
 	            result.addError(error);

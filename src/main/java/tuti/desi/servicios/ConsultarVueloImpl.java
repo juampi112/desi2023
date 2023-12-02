@@ -1,8 +1,10 @@
 package tuti.desi.servicios;
+import java.sql.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tuti.desi.accesoDatos.IConsultarVueloRepo;
+import tuti.desi.entidades.ConsultaVuelo;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.excepciones.Excepcion;
 import tuti.desi.presentacion.ConsultarVueloForm;
@@ -25,12 +27,12 @@ public class ConsultarVueloImpl implements ConsultarVueloService {
 			
 				
 	}*/
-
+	
 	@Override
-	public List<Vuelo> findByDate(ConsultarVueloForm vueloForm) throws Excepcion {
+	public List<ConsultaVuelo> findByParameters(ConsultarVueloForm vueloForm) throws Excepcion {
 		if(vueloForm.getFechaAconsultar()==null )
 			throw new Excepcion("Es necesario al menos completar la fecha");
 		else
-			return repo.findByfechaVuelo(vueloForm.getFechaAconsultar());
+			return repo.buscarVuelos(vueloForm.getFechaAconsultar(), vueloForm.getCiudadOrigen_Aconsultar(), vueloForm.getCiudadOrigen_Aconsultar(), vueloForm.getTipoDeVuelo_Aconsultar());
 	}
 }
