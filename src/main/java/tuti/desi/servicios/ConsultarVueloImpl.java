@@ -15,9 +15,11 @@ public class ConsultarVueloImpl implements ConsultarVueloService {
 	@Autowired
 	IConsultarVueloRepo repo;
 
-	/*@Override
-	public List<Vuelo> buscarVuelos(ConsultarVueloForm vueloForm) throws Excepcion
-	{
+	@Override
+	public List<Vuelo> buscarVuelos(ConsultarVueloForm vueloForm) throws Excepcion{
+		return repo.findByfechaVuelo(vueloForm.getFechaAconsultar());
+	}
+	/*{
 		if(vueloForm.getFechaAconsultar()==null )
 			throw new Excepcion("Es necesario al menos completar la fecha");
 		else
@@ -33,6 +35,7 @@ public class ConsultarVueloImpl implements ConsultarVueloService {
 		if(vueloForm.getFechaAconsultar()==null )
 			throw new Excepcion("Es necesario al menos completar la fecha");
 		else
-			return repo.buscarVuelos(vueloForm.getFechaAconsultar(), vueloForm.getCiudadOrigen_Aconsultar(), vueloForm.getCiudadOrigen_Aconsultar(), vueloForm.getTipoDeVuelo_Aconsultar());
+			return null;
 	}
 }
+/*repo.buscarVuelos(vueloForm.getFechaAconsultar(), vueloForm.getCiudadOrigen_Aconsultar(), vueloForm.getCiudadOrigen_Aconsultar(), vueloForm.getTipoDeVuelo_Aconsultar());*/

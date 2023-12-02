@@ -18,15 +18,15 @@
 
 	<form th:action="@{/consultaVuelo}" th:object="${formBean}" method="post">
 		<p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error" />
-		<table border="1" style="align-self: center;">		
+		<table border="1" style="align-self: center;">
 			<tr>
 				<td><label th:text="#{consulta.vuelo.fecha}" /></td>
-				<td><input required type="date" th:field="*{fechaAconsultar}" /></td> 
+				<td><input required type="date" th:field="*{fechaAconsultar}" /></td>
 			</tr>
 			<tr>
 				<td><label th:text="#{consulta.vuelo.origen}" /></td>
 				<td>
-					<select th:field="*{ciudadOrigen_Aconsultar}"> 
+					<select th:field="*{ciudadOrigen_Aconsultar}">
 						<option th:value="null" text="Seleccione una opción"></option>
 						<option th:each="p : ${allCiudades}" th:value="${p.id}" th:text="${p.nombre}"></option>
 					</select>
@@ -35,7 +35,7 @@
 			<tr>
 				<td><label th:text="#{consulta.vuelo.destino}" /></td>
 				<td>
-					<select th:field="*{ciudadDestino_Aconsultar}"> 
+					<select th:field="*{ciudadDestino_Aconsultar}">
 						<option th:value="null" text="Seleccione una opción"></option>
 						<option th:each="p : ${allCiudades}" th:value="${p.id}" th:text="${p.nombre}"></option>
 					</select>
@@ -44,7 +44,7 @@
 			<tr>
 				<td><label th:text="#{consulta.vuelo.tipo}" /></td>
 				<td>
-					<select th:field="*{tipoDeVuelo_Aconsultar}"> 
+					<select th:field="*{tipoDeVuelo_Aconsultar}">
 						<option value=""></option>
 						<option value="nacional">Nacional</option>
 						<option value="internacional">Internacional</option>
@@ -79,10 +79,16 @@
 					<td th:text="${{v.numeroVuelo}}"></td>
 					<td th:text="${{v.TipoDeVuelo}}"></td>
 					<td th:text="${{v.estado}}"></td>
-					<td th:text="${{v.capacidad}}"></td>		
+					<td th:text="${{v.avion.cantidadAsientos * v.avion.cantidadFilas }}"></td>
 				</tr>
+				</td>
+				</tr>
+
 			</tbody>
 		</table>
+		<div class="div-volver">
+			<a class="custom-btn btn-16 volver" th:href="@{/}">Volver al inicio</a>
+		</div>
 	</form>
 </body>
 

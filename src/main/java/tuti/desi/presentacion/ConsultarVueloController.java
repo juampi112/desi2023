@@ -53,7 +53,8 @@ public class ConsultarVueloController {
     	if(action.equals("BuscarVuelos"))
     	{  		
     		try {
-    			List<ConsultaVuelo> vuelos = servicioConsultarVuelo.findByParameters(formBean); //cambiar el findByDate
+    			System.out.print(formBean.getFechaAconsultar());
+    			List<Vuelo> vuelos = servicioConsultarVuelo.buscarVuelos(formBean); //cambiar el findByDate
     			modelo.addAttribute("resultadosVuelos",vuelos);
     			System.out.println(vuelos);
 			} catch (Exception e) {

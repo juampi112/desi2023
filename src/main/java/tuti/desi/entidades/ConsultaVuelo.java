@@ -3,25 +3,19 @@ package tuti.desi.entidades;
 import java.sql.Date;
 import java.sql.Time;
 
-import org.springframework.stereotype.Component;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
-import jakarta.validation.constraints.NotNull;
 
 public class ConsultaVuelo {
-	
+
     private Date fechaVuelo;
-	private Time horaVuelo;
+	
+	private Time horaVuelo;	
+	
 	private String TipoDeVuelo; 
+	
 	private String numeroVuelo;
+	
 	private String estado = "Normal";
+	
 	private int cantidadDeAsientos;
 	public Date getFechaVuelo() {
 		return fechaVuelo;
