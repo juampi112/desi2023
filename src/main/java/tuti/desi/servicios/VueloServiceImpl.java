@@ -39,9 +39,9 @@ public class VueloServiceImpl implements VueloService {
 	
 	
 	@Override
-	public boolean existVueloRepetido(Avion avion,Date fechayHora) throws Excepcion {
+	public boolean existVueloRepetido(Avion avion,Date fechaVuelo) throws Excepcion {
 
-		return repo.findByAvionAndFechaYHora(avion, fechayHora) != null;
+		return repo.findByAvionAndfechaVuelo(avion, fechaVuelo) != null;
 
 	}
 

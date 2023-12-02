@@ -15,6 +15,6 @@ public interface VueloService {
 
 	boolean exist(String numVuelo) throws Excepcion;
 	
-	boolean existVueloRepetido(Avion avion,Date fechayHora) throws Excepcion;
+	boolean existVueloRepetido(Avion avion,Date fechaVuelo) throws Excepcion;
 		
 }
