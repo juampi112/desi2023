@@ -36,7 +36,7 @@ public class Vuelo {
 	private Double precio;	
 	//ZonedDateTime
     
-	private Date fechayHora;
+	private Date fechaVuelo;
 	
 	private Time horaVuelo;
 	
@@ -94,11 +94,12 @@ public class Vuelo {
 	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
-	public Date getFechayHora() {
-		return fechayHora;
+
+	public Date getFechaVuelo() {
+		return fechaVuelo;
 	}
-	public void setFechayHora(Date fechayHora) {
-		this.fechayHora = fechayHora;
+	public void setFechaVuelo(Date fechaVuelo) {
+		this.fechaVuelo = fechaVuelo;
 	}
 	public Time getHoraVuelo() {
 		return horaVuelo;

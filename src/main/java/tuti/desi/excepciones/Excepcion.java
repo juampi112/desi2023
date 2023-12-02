@@ -29,7 +29,4 @@ public class Excepcion extends Exception{
 	public void setAtributo(String atributo) {
 		this.atributo = atributo;
 	}
-
-	
-
 }

@@ -12,7 +12,7 @@ public class ProgramarVueloForm {
 	private Ciudad ciudadSeleccionadaOrigen;
 	private Ciudad ciudadSeleccionadaDestino;
 	private String tipoDeVueloSeleccionado;
-	private Date fechaYHoraSeleccionada;
+	private Date fechaSeleccionada;
 	private Avion avionSeleccionado;
 	private Time horaVuelo;
 	
@@ -47,11 +47,11 @@ public class ProgramarVueloForm {
 		this.tipoDeVueloSeleccionado = tipoDeVueloSeleccionado;
 	}
 
-	public Date getFechaYHoraSeleccionada() {
-		return fechaYHoraSeleccionada;
+	public Date getFechaSeleccionada() {
+		return fechaSeleccionada;
 	}
-	public void setFechaYHoraSeleccionada(Date fechaYHoraSeleccionada) {
-		this.fechaYHoraSeleccionada = fechaYHoraSeleccionada;
+	public void setFechaSeleccionada(Date fechaSeleccionada) {
+		this.fechaSeleccionada = fechaSeleccionada;
 	}
 	public Avion getAvionSeleccionado() {
 		return avionSeleccionado;
