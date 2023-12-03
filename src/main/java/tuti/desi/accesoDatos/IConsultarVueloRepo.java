@@ -10,7 +10,7 @@ import tuti.desi.entidades.Vuelo;
 
 public interface IConsultarVueloRepo extends JpaRepository<Vuelo, Long>{
 
-	/*test*/
+
 /*   @Query("SELECT v.fechaVuelo, v.horaVuelo ,v.numeroVuelo ,v.TipoDeVuelo ,v.estado"
     		+ "FROM Vuelo v WHERE (v.fechaVuelo = ?1) " +
           "and (?2 is null or v.ciudadOrigen = ?2) " +
