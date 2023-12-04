@@ -19,4 +19,5 @@ public interface VueloService {
 	
 	boolean existVueloRepetido(Avion avion,Date fechaVuelo) throws Excepcion;
 		
+	List<Vuelo> getAll();
 }

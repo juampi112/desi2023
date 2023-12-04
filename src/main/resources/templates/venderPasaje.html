@@ -23,7 +23,7 @@
 				<td><label th:text="#{vender.pasaje.ingresardni}" /></td>
 				<td><input required type="number" th:field="*{dniAConsultar}" /></td>
 			</tr>
-			
+
 		</table>
 		<table class="botones">
 
@@ -46,7 +46,7 @@
 			</thead>
 			<tbody>
 				<tr>
-					<tr th:each="v : ${resultadoCliente}">
+				<tr th:each="v : ${resultadoCliente}">
 					<td th:text="${resultadoCliente.apellido}"></td>
 					<td th:text="${resultadoCliente.nombre}"></td>
 					<td th:text="${resultadoCliente.email}"></td>
@@ -61,15 +61,35 @@
 		<div class="div-volver">
 			<a class="custom-btn btn-16 volver" th:href="@{/}">Volver al inicio</a>
 		</div>
+
 		
 		
-		 <!--<div th:if="${esUsuarioRegistrado}">
-        <label for="asiento">Seleccione un asiento:</label>
-        <select id="asiento" name="asiento" th:field="*{asiento}">
-             Lógica para mostrar los asientos disponibles servicioVenderPasaje.buscarCliente(formBean)
-        </select>
-    </div>
-    -->
+		
+		
+		
+		<div class="input-group">
+			<select  th:field="*{vueloAConsultar}" class="select" id="vuelo">
+				<option class="option" th:value="null" text="Seleccione una opción"></option>
+				<option class="option" th:each="p : ${allVuelos}" th:value="${p.id}" th:text="${p.numeroVuelo}"></option>
+			</select>
+			<label th:text="#{vender.pasaje.numeroVuelo}" class="label" for="vuelo" />
+		</div>
+		
+		<div class="input-group">
+			<select  th:field="*{asientoAConsultar}" class="select" id="asiento">
+				<option class="option" th:value="null" text="Seleccione una opción"></option>
+				<option class="option" th:each="p : ${allAsientosDisponibles}" th:value="${p.id}" th:text="${p.numero}"></option>
+			</select>
+			<label th:text="#{vender.pasaje.asiento}" class="label" for="asiento" />
+		</div>
+
+		<!--<div th:if="${esUsuarioRegistrado}">
+			<label for="asiento">Seleccione un asiento:</label>
+			<select id="asiento" name="asiento" th:field="*{asiento}">
+				Lógica para mostrar los asientos disponibles servicioVenderPasaje.buscarCliente(formBean)
+			</select>
+		</div>-->
+
 
 	</form>
 </body>

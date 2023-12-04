@@ -1,17 +1,20 @@
 package tuti.desi.presentacion;
 
+import tuti.desi.entidades.Vuelo;
 
 public class VenderPasajeForm {
 	private Long dniAConsultar;
 	
-	private Long vueloAConsultar;
+	private Vuelo vueloAConsultar;
 	private Long asientoAConsultar;
 
-	public Long getVueloAConsultar() {
+
+
+	public Vuelo getVueloAConsultar() {
 		return vueloAConsultar;
 	}
 
-	public void setVueloAConsultar(Long vueloAConsultar) {
+	public void setVueloAConsultar(Vuelo vueloAConsultar) {
 		this.vueloAConsultar = vueloAConsultar;
 	}
 
