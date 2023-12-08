@@ -14,21 +14,21 @@
 
 		<div class="starter-template contenedorGeneral perimeraparte">
 			<div class="input-group">
-				<input required min="0" max="100" type="number" step="0.01" pattern="^\d*(\.\d{0,2})?$" th:field="*{ivaSeleccionado}"class="input" id="iva"/>
-				<label th:text="#{modificarImpuestosYTasas.iva}"class="label" for="iva"/>
+				<input required min="0" max="100" type="number" step="0.01" pattern="^\d*(\.\d{0,2})?$" th:field="*{ivaSeleccionado}"class="input-iva" id="iva"/>
+				<label th:text="#{modificarImpuestosYTasas.iva}"class="label_modifImpuestos" for="iva"/>
 			</div>
 			<div class="input-group">
-				<input required min="0" type="number" step="0.01" pattern="^\d*(\.\d{0,2})?$" th:field="*{tasaAeroportuariaNacionalSeleccionado}" class="input" id="tasaNacional"/>
-				<label th:text="#{modificarImpuestosYTasas.tasaNacional}" class="label" for="tasaNacional"/>
+				<input required min="0" type="number" step="0.01" pattern="^\d*(\.\d{0,2})?$" th:field="*{tasaAeroportuariaNacionalSeleccionado}" class="input-iva" id="tasaNacional"/>
+				<label th:text="#{modificarImpuestosYTasas.tasaNacional}" class="label_modifImpuestos" for="tasaNacional"/>
 			</div>
 			<div class="input-group">
-				<input required min="0" type="number" step="0.01" pattern="^\d*(\.\d{0,2})?$" th:field="*{tasaAeroportuariaInternacionalSeleccionado}" class="input" id="tasaInt"/>
-				<label th:text="#{modificarImpuestosYTasas.tasaInt}" class="label" for="tasaInt"/>
+				<input required min="0" type="number" step="0.01" pattern="^\d*(\.\d{0,2})?$" th:field="*{tasaAeroportuariaInternacionalSeleccionado}" class="input-iva" id="tasaInt"/>
+				<label th:text="#{modificarImpuestosYTasas.tasaInt}" class="label_modifImpuestos" for="tasaInt"/>
 			</div>
 			
 			<div class="input-group">
-				<input required min="0" type="number" step="0.01" pattern="^\d*(\.\d{0,2})?$" th:field="*{cotizacionDolarSeleccionado}" class="input" id="cotDolar"/>
-				<label th:text="#{modificarImpuestosYTasas.Dolar}" class="label" for="cotDolar"/>
+				<input required min="0" type="number" step="0.01" pattern="^\d*(\.\d{0,2})?$" th:field="*{cotizacionDolarSeleccionado}" class="input-iva" id="cotDolar"/>
+				<label th:text="#{modificarImpuestosYTasas.Dolar}" class="label_modifImpuestos" for="cotDolar"/>
 			</div>
 		</div>
 		<div class="starter-template contenedorGeneral segundaparte">
