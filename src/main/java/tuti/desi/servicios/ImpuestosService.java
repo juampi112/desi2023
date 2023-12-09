@@ -15,6 +15,6 @@ public interface ImpuestosService {
 
 	ImpuestosYTasas save(ImpuestosYTasas v) throws Excepcion;
 
-	ImpuestosYTasas getById(Long id) ;
+	ImpuestosYTasas getBy_Id(Long id) ;
 
 }
