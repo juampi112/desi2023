@@ -29,7 +29,7 @@ public class ModificarImpuestosYTasasController {
     public String preparaForm(Model modelo) {
     	ModificarImpuestosYTasasForm form =  new ModificarImpuestosYTasasForm();
        modelo.addAttribute("formBean",form);
-       ImpuestosYTasas impYTasas = impuestosService.getById((long) 1);
+       ImpuestosYTasas impYTasas = impuestosService.getBy_Id((long) 1);
        modelo.addAttribute("impYTasas", impYTasas);
        return "modificarImpuestosYTasas";
     }
