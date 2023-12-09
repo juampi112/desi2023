@@ -24,7 +24,7 @@ public interface IConsultarVueloRepo extends JpaRepository<Vuelo, Long>{
    List<Vuelo> buscarVuelosAll();
    
    
-   @Query("SELECT v FROM Vuelo v WHERE v.fechaVuelo = :date")
+   @Query("SELECT v FROM Vuelo v WHERE v.fechaVuelo = :date ORDER BY v.horaVuelo")
 	List<Vuelo> findByfechaVuelo(Date date);
+   
 }
-

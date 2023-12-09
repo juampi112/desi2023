@@ -2,37 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title><span th:text="#{vender.pasaje.titulo}"></span></title>
+	<title>Vender Pasajes</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" th:href="@{/css/main.css}" />
 </head>
 
 <body>
 
-	<div class="starter-template">
-		<h1><span th:text="#{empresa}" /></h1>
-		<h2>
-			<span th:text="#{vender.pasaje.titulo}"></span>
-		</h2>
+	<div class="Titulos-Contenedores">
+		<h1 class="Titulos-H1">Vender Pasaje</h1>
 	</div>
 
 	<form th:action="@{/venderPasaje}" th:object="${formBean}" method="post">
 		<p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error" />
-		<table border="1" style="align-self: center;">
-			<tr>
-				<td><label th:text="#{vender.pasaje.ingresardni}" /></td>
-				<td><input required type="number" th:field="*{dniAConsultar}" /></td>
-			</tr>
 
-		</table>
-		<table class="botones">
+		<div class="starter-template contenedorGeneral perimeraparte">
+			<div class="input-group">
+				<input required min="0" type="number" th:field="*{dniAConsultar}" class="input-iva" id="dni" />
+				<label th:text="#{vender.pasaje.ingresardni}" class="label_modifImpuestos" for="dni" />
+			</div>
+		</div>
+		<div class="starter-template contenedorGeneral segundaparte">
+			<input class="custom-btn btn-16" type="submit" name="action" value="ConsultarCliente" />
+		</div>
 
-			<tr>
-				<td><input type="submit" name="action" value="ConsultarCliente" /></td>
-			</tr>
-
-		</table>
-		<table class="resultados" border="0" style="align-self: center;">
+		<table class="resultados-busqueda-vuelo">
 			<thead>
 				<tr>
 					<th><label th:text="#{vender.pasaje.apellido}" /></th>
@@ -40,8 +34,6 @@
 					<th><label th:text="#{vender.pasaje.email}" /></th>
 					<th><label th:text="#{vender.pasaje.fechaDeNacimiento}" /></th>
 					<th><label th:text="#{vender.pasaje.pasaporte}" /></th>
-					<th></th>
-					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -53,43 +45,35 @@
 					<td th:text="${resultadoCliente.fechaDeNacimiento}"></td>
 					<td th:text="${resultadoCliente.pasaporte}"></td>
 				</tr>
-				</td>
-				</tr>
-
 			</tbody>
 		</table>
 		<div class="div-volver">
 			<a class="custom-btn btn-16 volver" th:href="@{/}">Volver al inicio</a>
 		</div>
 
-		
-		
-		
-		
-		
-		<div class="input-group">
-			<select  th:field="*{vueloAConsultar}" class="select" id="vuelo">
-				<option class="option" th:value="null" text="Seleccione una opción"></option>
-				<option class="option" th:each="p : ${allVuelos}" th:value="${p.id}" th:text="${p.numeroVuelo}"></option>
-			</select>
-			<label th:text="#{vender.pasaje.numeroVuelo}" class="label" for="vuelo" />
-		</div>
-		
-		<div class="input-group">
-			<select  th:field="*{asientoAConsultar}" class="select" id="asiento">
-				<option class="option" th:value="null" text="Seleccione una opción"></option>
-				<option class="option" th:each="p : ${allAsientosDisponibles}" th:value="${p.id}" th:text="${p.numero}"></option>
-			</select>
-			<label th:text="#{vender.pasaje.asiento}" class="label" for="asiento" />
-		</div>
+		<div class="starter-template contenedorGeneral perimeraparte">
+			<div class="input-group">
+				<select th:field="*{vueloAConsultar}" class="select" id="vuelo">
+					<option class="option" th:value="null" text="Seleccione una opción"></option>
+					<option class="option" th:each="p : ${allVuelos}" th:value="${p.id}" th:text="${p.numeroVuelo}">
+					</option>
+				</select>
+				<label th:text="#{vender.pasaje.numeroVuelo}" class="label" for="vuelo" />
+			</div>
 
-		<!--<div th:if="${esUsuarioRegistrado}">
-			<label for="asiento">Seleccione un asiento:</label>
-			<select id="asiento" name="asiento" th:field="*{asiento}">
-				Lógica para mostrar los asientos disponibles servicioVenderPasaje.buscarCliente(formBean)
-			</select>
-		</div>-->
-
+			<div class="input-group">
+				<select th:field="*{asientoAConsultar}" class="select" id="asiento">
+					<option class="option" th:value="null" text="Seleccione una opción"></option>
+					<option class="option" th:each="p : ${allAsientosDisponibles}" th:value="${p.id}"
+						th:text="${p.numero}">
+					</option>
+				</select>
+				<label th:text="#{vender.pasaje.asiento}" class="label" for="asiento" />
+			</div>
+		</div>
+		<div class="starter-template contenedorGeneral segundaparte">
+			<input class="custom-btn btn-16" type="submit" name="action" value="EmitirTiket" />
+		</div>
 
 	</form>
 </body>

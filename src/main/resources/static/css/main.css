@@ -38,13 +38,15 @@ body {
 	display: grid;
 	margin: auto;
 }
-.perimeraparte{
-	
+
+.perimeraparte {
+
 	border-top-left-radius: 30px;
 	border-top-right-radius: 30px;
 }
-.segundaparte{
-	
+
+.segundaparte {
+
 	border-bottom-left-radius: 30px;
 	border-bottom-right-radius: 30px;
 	padding-bottom: 15px;
@@ -97,19 +99,29 @@ button {
 	outline: none;
 }
 
-table.botones tr {
-	margin-top: 10;
-	float: left;
-}
 
 .error {
 	color: red;
+	position: absolute;
+	right: 0;
+	padding-right: 40px;
+	width: 350px;
+	display: grid;
+	margin: auto;
+	font-size: 1.25rem;
+	text-align: center;
 }
 
 .btn-16 {
 	border: none;
 	color: #000;
 	background-color: rgb(230, 232, 223);
+}
+
+.centrar_botones_inicio {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .btn-16:after {
@@ -143,26 +155,30 @@ table.botones tr {
 .btn-16:active {
 	top: 2px;
 }
-.input-group{
+
+.input-group {
 	font-size: 1.25rem;
-	position: relative;	
+	position: relative;
 }
-.input, .input-iva{
+
+.input,
+.input-iva {
 	all: unset;
 	padding: 1rem;
 	margin: 1rem;
 	border: 1px solid #9e9e9e;
 	border-radius: 10px;
 	transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    color: #777; 
+	color: #777;
 	text-align: center;
 	font-weight: bold;
 }
-.input-iva{
+
+.input-iva {
 	width: 274px;
 }
 
-.label{
+.label {
 	position: absolute;
 	top: 1rem;
 	left: 5rem;
@@ -171,23 +187,26 @@ table.botones tr {
 	pointer-events: none;
 	transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-input:focus, input-iva:focus{
+
+input:focus,
+input-iva:focus {
 	transition: 0ms;
-	border: 2px solid rgb(81, 81, 81) ;
-    padding-left: 10px;
-    padding-right: 10px;
+	border: 2px solid rgb(81, 81, 81);
+	padding-left: 10px;
+	padding-right: 10px;
 }
-.input:is(:focus, :valid) ~ label{
+
+.input:is(:focus, :valid)~label {
 	transform: translateY(-45%) translateX(-15%) scale(0.7);
-    background-color: #FAFCF3; 
+	background-color: #FAFCF3;
 	padding-inline: 0.3rem;
 	color: #aaa;
 	margin-top: -0.2rem;
-    padding-left: 10px;
-    padding-right: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
-.select{
+.select {
 	padding: 0.8rem;
 	margin: 0.8rem;
 	border: 1px solid #9e9e9e;
@@ -195,52 +214,56 @@ input:focus, input-iva:focus{
 	transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 	width: 308px;
 	height: 60px;
-    background-color: #FAFCF3; 
+	background-color: #FAFCF3;
 	font-size: 1.25rem;
 	text-align: center;
 	font-weight: bold;
-    color: #777; 
+	color: #777;
 }
-select:focus{
+
+select:focus {
 	transition: 0ms;
-	border: 2px solid rgb(81, 81, 81) ;
-    background-color: #FAFCF3; 
-    padding-left: 10px;
-    padding-right: 10px;
+	border: 2px solid rgb(81, 81, 81);
+	background-color: #FAFCF3;
+	padding-left: 10px;
+	padding-right: 10px;
 }
-.select:is(:focus, :valid) ~ label{
+
+.select:is(:focus, :valid)~label {
 	transform: translateY(-45%) translateX(-15%) scale(0.7);
 	padding-inline: 0.3rem;
 	color: #aaa;
 	margin-top: -0.2rem;
-    background-color: #FAFCF3; 
-    padding-left: 10px;
-    padding-right: 10px;
+	background-color: #FAFCF3;
+	padding-left: 10px;
+	padding-right: 10px;
 }
+
 .select option {
 	font-size: 1.25rem;
-    background-color: #FAFCF3; 
-    color: #777; 
+	background-color: #FAFCF3;
+	color: #777;
 	text-align: center;
 	font-weight: bold;
 }
 
-.fecha_hora{
+.fecha_hora {
 	all: unset;
 	padding: 1rem;
 	margin: 1rem;
 	border: 1px solid #9e9e9e;
 	border-radius: 10px;
 	transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    color: #777; 
+	color: #777;
 	text-align: center;
 	font-weight: bold;
 	width: 275px;
 	height: 25px;
-    background-color: #FAFCF3; 
+	background-color: #FAFCF3;
 }
+
 .label_fecha_hora,
-.label_modifImpuestos{
+.label_modifImpuestos {
 	position: absolute;
 	top: 1rem;
 	left: 5rem;
@@ -250,33 +273,75 @@ select:focus{
 	transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 	font-size: 0.875rem;
 	transform: translateY(-130%);
-    background-color: #FAFCF3; 
-    padding-left: 10px;
-    padding-right: 10px;
-}	
-.Bienvenido{
+	background-color: #FAFCF3;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.Bienvenido,
+.Titulos-H1 {
 	font-size: 3rem;
-    color: #777; 
-    background-color: #FAFCF3; 
-    border-radius: 25px;
-    height: auto;
-    width: 400px;
-    text-decoration: underline;
-}	
-.div-volver{
+	color: #777;
+	background-color: #FAFCF3;
+	border-radius: 25px;
+	height: auto;
+	width: 400px;
+	text-decoration: underline;
+}
+
+.Titulos-H1 {
+	font-size: 2rem;
+	border-radius: 10px;
+	color: #aaa;
+}
+
+.Titulos-Contenedores {
+	position: absolute;
+	text-align: center;
+	top: 40px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.div-volver {
 	position: absolute;
 	top: 90px;
 }
-.volver{
-    left: 30%;
-    font-size: larger;
-    text-decoration: none;
-    border-radius: 10px;
-    background-color: #FAFCF3; 
+
+.volver {
+	left: 30%;
+	font-size: larger;
+	text-decoration: none;
+	border-radius: 10px;
+	background-color: #FAFCF3;
 }
-.botonIRprogramarVuelo{
-    font-size: larger;
-    text-decoration: none;
-    left: 50px;
-    border-radius: 10px;
+
+.botonIRprogramarVuelo {
+	font-size: larger;
+	text-decoration: none;
+	border-radius: 10px;
+	margin: 20px;
+}
+
+.resultados-busqueda-vuelo {
+	width: calc(100% - 100px);
+	margin: 50px;
+	border-collapse: collapse;
+	border: 2px #777 solid;
+	border-radius: 50px;
+
+}
+
+.resultados-busqueda-vuelo th,
+.resultados-busqueda-vuelo td {
+	padding: 20px;
+	text-align: left;
+	background-color: rgb(240, 226, 210);
+	color: #777;
+	border: 2px #777 solid;
+}
+
+.resultados-busqueda-vuelo th {
+	background-color: rgb(225, 202, 170);
+	color: #777;
 }
