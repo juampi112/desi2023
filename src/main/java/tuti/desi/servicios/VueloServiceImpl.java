@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tuti.desi.accesoDatos.IVueloRepo;
 import tuti.desi.entidades.Avion;
-
+import tuti.desi.entidades.Ciudad;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.excepciones.Excepcion;
 
@@ -20,7 +20,11 @@ public class VueloServiceImpl implements VueloService {
 	private IVueloRepo repo;
 
 	
-
+	@Override
+	public List<Vuelo> getAll() {
+		
+		return repo.findAll();
+	}
 
 
 	@Override
