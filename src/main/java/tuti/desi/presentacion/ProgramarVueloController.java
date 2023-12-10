@@ -76,9 +76,8 @@ public class ProgramarVueloController {
 					vuelo.setAvion(formBean.getAvionSeleccionado());
 					vuelo.setFechaVuelo(formBean.getFechaSeleccionada());
 					vuelo.setHoraVuelo(formBean.getHoraVuelo());
-
+					vuelo.setAsientos(vuelo.instanciarAsientos());
 					vueloService.save(vuelo);
-
 					return "redirect:/programarVuelo";
 
 				} catch (Exception e) {

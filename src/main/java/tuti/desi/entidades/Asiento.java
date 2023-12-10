@@ -17,14 +17,20 @@ public class Asiento {
 	 @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
-
 	    private String numero;
 	    private boolean disponible;
-
 	    @ManyToOne
-	    @JoinColumn(name = "vuelo_id")
 	    private Vuelo vuelo;
-	
+
+	public Vuelo getVuelo() {
+			return vuelo;
+		}
+
+
+		public void setVuelo(Vuelo vuelo) {
+			this.vuelo = vuelo;
+		}
+
 
 	public Long getId() {
 			return id;
@@ -53,16 +59,6 @@ public class Asiento {
 
 		public void setDisponible(boolean disponible) {
 			this.disponible = disponible;
-		}
-
-
-		public Vuelo getVuelo() {
-			return vuelo;
-		}
-
-
-		public void setVuelo(Vuelo vuelo) {
-			this.vuelo = vuelo;
 		}
 
 
