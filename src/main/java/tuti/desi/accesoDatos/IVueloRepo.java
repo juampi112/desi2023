@@ -20,4 +20,7 @@ public interface IVueloRepo extends JpaRepository<Vuelo, Long> {
 	@Query("select v from Vuelo v where v.avion = ?1 and v.fechaVuelo = ?2")
 	Vuelo findByAvionAndfechaVuelo(Avion avion, Date fechaVuelo);
 
+
+	
+	
 }

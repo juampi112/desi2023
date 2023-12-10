@@ -22,5 +22,9 @@ public class VenderPasajeImpl implements VenderPasajeService {
 	public Cliente buscarCliente(VenderPasajeForm venderPasajeForm) throws Excepcion{
 		return repo.findBydni(venderPasajeForm.getDniAConsultar());
 	}
-		
+	
+	@Override
+	public Vuelo buscarVuelos(VenderPasajeForm venderPasajeForm) throws Excepcion{
+		return repo.findByNumeroVuelo(venderPasajeForm.getVueloAConsultar().getNumeroVuelo());
+	}		
 }

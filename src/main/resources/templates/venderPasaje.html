@@ -64,16 +64,24 @@
 			<div class="input-group">
 				<select th:field="*{asientoAConsultar}" class="select" id="asiento">
 					<option class="option" th:value="null" text="Seleccione una opción"></option>
-					<option class="option" th:each="p : ${allAsientosDisponibles}" th:value="${p.id}"
-						th:text="${p.numero}">
+					<option class="option" th:each="p : ${resultadoVuelo}" th:value="${p.id}" th:text="${p.asientos}">
 					</option>
 				</select>
 				<label th:text="#{vender.pasaje.asiento}" class="label" for="asiento" />
 			</div>
+
+			
+			
 		</div>
 		<div class="starter-template contenedorGeneral segundaparte">
-			<input class="custom-btn btn-16" type="submit" name="action" value="EmitirTiket" />
+			<input class="custom-btn btn-16" type="submit" name="action" value="EmitirTicket" />
 		</div>
+
+		<div class="starter-template contenedorGeneral segundaparte">
+			<input class="custom-btn btn-16" type="submit" name="action" value="ConsultarAsiento" />
+		</div>
+
+
 
 	</form>
 </body>
