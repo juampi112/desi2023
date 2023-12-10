@@ -1,6 +1,8 @@
 package tuti.desi.servicios;
 
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +26,9 @@ public class ImpuestosYTasasImp implements ImpuestosService {
 	public ImpuestosYTasas getBy_Id(Long id) {
 		return repo.findBy_Id(id);
 	}
+	
 
+	public Optional<ImpuestosYTasas> findById(Long id) {
+		return repo.findById(id);
+	}
 }

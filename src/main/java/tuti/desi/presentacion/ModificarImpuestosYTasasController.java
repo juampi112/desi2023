@@ -1,5 +1,7 @@
 package tuti.desi.presentacion;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,8 +31,12 @@ public class ModificarImpuestosYTasasController {
     public String preparaForm(Model modelo) {
     	ModificarImpuestosYTasasForm form =  new ModificarImpuestosYTasasForm();
        modelo.addAttribute("formBean",form);
-       ImpuestosYTasas impYTasas = impuestosService.getBy_Id((long) 1);
-       modelo.addAttribute("impYTasas", impYTasas);
+       Optional<ImpuestosYTasas> impYTasas = impuestosService.findById((long) 1);
+//       modelo.addAttribute("impYTasas", impYTasas.get());
+       form.setIvaSeleccionado(impYTasas.get().getIva());
+       form.setCotizacionDolarSeleccionado(impYTasas.get().getCotizacionDolar());
+       form.setTasaAeroportuariaInternacionalSeleccionado(impYTasas.get().getTasaAeroportuariaInternacional());
+       form.setTasaAeroportuariaNacionalSeleccionado(impYTasas.get().getTasaAeroportuariaNacional());      
        return "modificarImpuestosYTasas";
     }
 

@@ -1,6 +1,7 @@
 package tuti.desi.servicios;
 
 import java.util.List;
+import java.util.Optional;
 
 import tuti.desi.entidades.Avion;
 import tuti.desi.entidades.Ciudad;
@@ -16,5 +17,7 @@ public interface ImpuestosService {
 	ImpuestosYTasas save(ImpuestosYTasas v) throws Excepcion;
 
 	ImpuestosYTasas getBy_Id(Long id) ;
+	
+	Optional<ImpuestosYTasas> findById(Long id);
 
 }
