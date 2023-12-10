@@ -14,12 +14,11 @@
 	<form th:action="@{/modificarImpuestosYTasas}" th:object="${formBean}" method="post">
 
 		<p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error" />
-
 		<div class="starter-template contenedorGeneral perimeraparte">
 			<div class="input-group">
 				<input required min="0" max="100" type="number" step="0.01" pattern="^\d*(\.\d{0,2})?$"
-					th:field="*{ivaSeleccionado}" class="input-iva" id="iva" value="${impYTasas.ivaSeleccionado}"/>
-				<label th:text="#{modificarImpuestosYTasas.iva}" class="label_modifImpuestos" for="iva" />
+					th:field="*{ivaSeleccionado}" class="input-iva" id="iva"/>
+				<label th:text="#{modificarImpuestosYTasas.iva}"  class="label_modifImpuestos" for="iva" />
 			</div>
 			<div class="input-group">
 				<input required min="0" type="number" step="0.01" pattern="^\d*(\.\d{0,2})?$"

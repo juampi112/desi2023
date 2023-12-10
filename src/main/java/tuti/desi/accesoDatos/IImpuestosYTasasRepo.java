@@ -13,4 +13,9 @@ import tuti.desi.entidades.ImpuestosYTasas;
 public interface IImpuestosYTasasRepo extends JpaRepository<ImpuestosYTasas, Long> {
 	@Query("SELECT i FROM ImpuestosYTasas i WHERE ( i.id = :id) ")
 	ImpuestosYTasas findBy_Id(@Param("id") Long id);
+	
+	
+	
+	Optional<ImpuestosYTasas> findById(@Param("id") Long id);
+	
 }
