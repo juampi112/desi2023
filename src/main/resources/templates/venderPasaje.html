@@ -64,7 +64,7 @@
 			<div class="input-group">
 				<select th:field="*{asientoAConsultar}" class="select" id="asiento">
 					<option class="option" th:value="null" text="Seleccione una opción"></option>
-					<option class="option" th:each="p : ${resultadoVuelo}" th:value="${p.id}" th:text="${p.asientos}">
+					<option class="option" th:each="p : ${resultadoVuelo}" th:value="${p.id}" th:text="${p.numero}">
 					</option>
 				</select>
 				<label th:text="#{vender.pasaje.asiento}" class="label" for="asiento" />

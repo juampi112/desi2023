@@ -29,7 +29,9 @@ public class Vuelo {
 
 	private String numeroVuelo;
 
-	private List<Integer> asientos;
+	@OneToMany(mappedBy = "vuelo")
+	private List<Asiento> asientos;
+
 	@ManyToOne
 	private Ciudad ciudadOrigen;
 	@ManyToOne
@@ -48,18 +50,25 @@ public class Vuelo {
 
 	private String estado = "Normal";
 
-	public List<Integer> getAsientos() {
+	
+	
+	public List<Asiento> getAsientos() {
 		return asientos;
 	}
 
-	public void setAsientos() {
-		this.asientos = new ArrayList<>();
-	    int totalAsientos = this.avion.getCantidadAsientos() * this.avion.getCantidadFilas();
-
-	    for (int i = 1 ; i <= totalAsientos; i++) {
-	        this.asientos.add(i);
-	    }
+	public void setAsientos() {	
+        List<Asiento> nuevosAsientos = new ArrayList<>();
+        int totalAsientos = this.getAvion().getCapacidad();
+        for (int i = 1; i <= totalAsientos; i++) {
+            Asiento asiento = new Asiento();
+            asiento.setNumero(i); 
+            asiento.setDisponible(true); 
+            asiento.setVuelo(this);
+            nuevosAsientos.add(asiento);
+        }
+        this.asientos = nuevosAsientos;		
 	}
+
 	public Avion getAvion() {
 		return avion;
 	}

@@ -18,7 +18,7 @@ public class Asiento {
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 
-	    private String numero;
+	    private Integer numero;
 	    private boolean disponible;
 
 	    @ManyToOne
@@ -36,12 +36,15 @@ public class Asiento {
 		}
 
 
-		public String getNumero() {
+
+
+
+		public Integer getNumero() {
 			return numero;
 		}
 
 
-		public void setNumero(String numero) {
+		public void setNumero(Integer numero) {
 			this.numero = numero;
 		}
 

@@ -1,5 +1,6 @@
 package tuti.desi.presentacion;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.validation.Valid;
+import tuti.desi.entidades.Asiento;
 import tuti.desi.entidades.Cliente;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.excepciones.Excepcion;
+import tuti.desi.servicios.AsientoService;
 import tuti.desi.servicios.VenderPasajeService;
 import tuti.desi.servicios.VueloService;
 
@@ -26,6 +29,8 @@ public class VenderPasajeController {
 	private VenderPasajeService servicioVenderPasaje;
 	@Autowired
 	private VueloService servicioVuelo;
+	@Autowired
+	private AsientoService servicioAsiento;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String preparaForm(Model modelo) {
@@ -59,7 +64,7 @@ public class VenderPasajeController {
     	
     	
     	
-    	
+    	//servicioAsiento
     	if(action.equals("ConsultarAsiento")) {
     		try {
     			Vuelo vuelo = servicioVenderPasaje.buscarVuelos(formBean); 
@@ -68,8 +73,13 @@ public class VenderPasajeController {
     				result.addError(error);
     			}
     			else {
-
-        			List<Integer> asientos = vuelo.getAsientos();
+    				List<Asiento> asientos = servicioAsiento.obtenerAsiento(vuelo);
+        			
+    			//	servicioAsiento			
+        			//List<Asiento> asientos = new ArrayList<>();
+        			//asientos.obtenerAsiento(vuelo.getId());
+        		//	List<Asiento> asientos = new ArrayList<>();
+        					//vuelo.getAsientos();
     				modelo.addAttribute("resultadoVuelo",asientos);
 
         			System.out.print(asientos);	

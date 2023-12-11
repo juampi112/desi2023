@@ -11,6 +11,6 @@ import tuti.desi.excepciones.Excepcion;
 
 public interface AsientoService {
 
-	List<Asiento> obtenerAsiento(Long vueloId)throws Excepcion;
+	List<Asiento> obtenerAsiento(Vuelo vueloId)throws Excepcion;
 
 }

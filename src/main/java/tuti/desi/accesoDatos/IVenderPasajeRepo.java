@@ -13,7 +13,7 @@ public interface IVenderPasajeRepo extends JpaRepository<Cliente, Long>{
 
 	Cliente findBydni(Long dni);
 	
-	@Query("select v from Vuelo v where v.numeroVuelo = ?1")
-	Vuelo findByNumeroVuelo(String numeroVuelo );
+	@Query("select v from Vuelo v where v.Id = ?1")
+	Vuelo findByNumeroVuelo(Long Id );
 }
 
