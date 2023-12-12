@@ -2,6 +2,7 @@ package tuti.desi.entidades;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -30,6 +31,7 @@ public class Vuelo {
 
 	@OneToMany(mappedBy = "vuelo")
 	private List<Asiento> asientos;
+
 	@ManyToOne
 	private Ciudad ciudadOrigen;
 	@ManyToOne
@@ -38,7 +40,6 @@ public class Vuelo {
 	private String TipoDeVuelo;
 
 	private Double precio;
-	// ZonedDateTime
 
 	private Date fechaVuelo;
 
@@ -49,12 +50,23 @@ public class Vuelo {
 
 	private String estado = "Normal";
 
+	
+	
 	public List<Asiento> getAsientos() {
 		return asientos;
 	}
 
-	public void setAsientos(List<Asiento> asientos) {
-		this.asientos = asientos;
+	public void setAsientos() {	
+        List<Asiento> nuevosAsientos = new ArrayList<>();
+        int totalAsientos = this.getAvion().getCapacidad();
+        for (int i = 1; i <= totalAsientos; i++) {
+            Asiento asiento = new Asiento();
+            asiento.setNumero(i); 
+            asiento.setDisponible(true); 
+            asiento.setVuelo(this);
+            nuevosAsientos.add(asiento);
+        }
+        this.asientos = nuevosAsientos;		
 	}
 
 	public Avion getAvion() {

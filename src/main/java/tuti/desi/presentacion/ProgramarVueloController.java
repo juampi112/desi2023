@@ -18,6 +18,7 @@ import tuti.desi.entidades.Avion;
 import tuti.desi.entidades.Ciudad;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.excepciones.Excepcion;
+import tuti.desi.servicios.AsientoService;
 import tuti.desi.servicios.AvionService;
 import tuti.desi.servicios.CiudadService;
 import tuti.desi.servicios.VueloService;
@@ -75,10 +76,10 @@ public class ProgramarVueloController {
 					vuelo.setTipoDeVuelo(formBean.getTipoDeVueloSeleccionado());
 					vuelo.setAvion(formBean.getAvionSeleccionado());
 					vuelo.setFechaVuelo(formBean.getFechaSeleccionada());
-					vuelo.setHoraVuelo(formBean.getHoraVuelo());
-
+					vuelo.setHoraVuelo(formBean.getHoraVuelo());				
 					vueloService.save(vuelo);
-
+					
+					vuelo.setAsientos();
 					return "redirect:/programarVuelo";
 
 				} catch (Exception e) {

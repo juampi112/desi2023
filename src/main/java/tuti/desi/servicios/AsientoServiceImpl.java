@@ -16,7 +16,7 @@ public class AsientoServiceImpl implements AsientoService {
 	private IAsientoRepo repo;
 
 	@Override
-	public List<Asiento> obtenerAsiento(Long vueloId) throws Excepcion {
+	public List<Asiento> obtenerAsiento(Vuelo vueloId) throws Excepcion {
 		return repo.findByVueloIdAndDisponible(vueloId);
 	}
 

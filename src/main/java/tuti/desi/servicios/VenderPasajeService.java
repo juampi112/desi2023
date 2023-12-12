@@ -15,5 +15,5 @@ public interface VenderPasajeService {
 
 	Cliente buscarCliente(VenderPasajeForm venderPasajeForm) throws Excepcion;
 
-	
+	Vuelo buscarVuelos(VenderPasajeForm venderPasajeForm) throws Excepcion;
 }
