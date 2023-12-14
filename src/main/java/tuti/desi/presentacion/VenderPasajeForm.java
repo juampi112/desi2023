@@ -5,11 +5,9 @@ import tuti.desi.entidades.Vuelo;
 
 public class VenderPasajeForm {
 	private Long dniAConsultar;
-	
+
 	private Vuelo vueloAConsultar;
 	private Asiento asientoAConsultar;
-
-
 
 	public Vuelo getVueloAConsultar() {
 		return vueloAConsultar;
@@ -18,8 +16,6 @@ public class VenderPasajeForm {
 	public void setVueloAConsultar(Vuelo vueloAConsultar) {
 		this.vueloAConsultar = vueloAConsultar;
 	}
-
-
 
 	public Asiento getAsientoAConsultar() {
 		return asientoAConsultar;
@@ -36,7 +32,5 @@ public class VenderPasajeForm {
 	public void setDniAConsultar(Long dniAConsultar) {
 		this.dniAConsultar = dniAConsultar;
 	}
-	
-
 
 }
