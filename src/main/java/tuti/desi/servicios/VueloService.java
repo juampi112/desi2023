@@ -13,11 +13,13 @@ import tuti.desi.excepciones.Excepcion;
 public interface VueloService {
 
 	
-	Vuelo save(Vuelo v) throws Excepcion; //xq el save devuelve un vuelo?
+	Vuelo save(Vuelo v) throws Excepcion; 
 
 	boolean exist(String numVuelo) throws Excepcion;
 	
 	boolean existVueloRepetido(Avion avion,Date fechaVuelo) throws Excepcion;
 		
 	List<Vuelo> getAll();
+	
+	public void saveVueloConAsientos(Vuelo vuelo);
 }

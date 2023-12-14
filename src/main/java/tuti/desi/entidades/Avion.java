@@ -29,7 +29,7 @@ public class Avion {
 	private int cantidadAsientos;
 	
 	@Transient 
-	private int capacidad = calcularCapacidad();
+	private int capacidad ;
 	
 	public Long getId() {
 		return id;
@@ -64,14 +64,9 @@ public class Avion {
 		this.cantidadAsientos = cantidadAsientos;
 	}
 	public int getCapacidad() {
-		return capacidad;
-	}
-	
-	private int calcularCapacidad() {
-		
 		return this.cantidadFilas * this.cantidadAsientos;
 	}
-
+	
 	public Avion() {
 	}
 	

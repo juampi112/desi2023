@@ -13,4 +13,5 @@ public interface AsientoService {
 
 	List<Asiento> obtenerAsiento(Vuelo vueloId)throws Excepcion;
 
+	Asiento save(Asiento a) throws Excepcion; 
 }

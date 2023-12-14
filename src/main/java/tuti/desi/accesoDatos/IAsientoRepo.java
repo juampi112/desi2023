@@ -16,4 +16,6 @@ public interface IAsientoRepo extends JpaRepository<Asiento, Long> {
 		
 	@Query("select a from Asiento a where a.vuelo = ?1 and a.disponible = true")
 	List<Asiento> findByVueloIdAndDisponible(Vuelo vueloId);	
+	
+	
 }
