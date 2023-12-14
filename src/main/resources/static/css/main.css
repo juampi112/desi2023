@@ -81,7 +81,7 @@ button {
 
 .custom-btn {
 
-	width: 130px;
+	width: 250px;
 	height: 40px;
 	color: #fff;
 	border-radius: 5px;
@@ -344,4 +344,9 @@ select:focus {
 .resultados-busqueda-vuelo th {
 	background-color: rgb(225, 202, 170);
 	color: #777;
+}
+
+.mensajeVerde{
+	color:greenyellow;
+	font-size: larger;
 }
