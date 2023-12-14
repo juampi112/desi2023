@@ -16,6 +16,7 @@ import tuti.desi.entidades.ConsultaVuelo;
 import tuti.desi.entidades.Provincia;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.excepciones.Excepcion;
+import tuti.desi.servicios.AsientoService;
 import tuti.desi.servicios.AvionService;
 import tuti.desi.servicios.CiudadService;
 import tuti.desi.servicios.ConsultarVueloService;
@@ -31,6 +32,8 @@ public class ConsultarVueloController {
 	private CiudadService servicioCiudad;
 	@Autowired
     private VueloService servicioVuelo;
+	@Autowired
+    private AsientoService servicioAsiento;
 	
 	@ModelAttribute("allCiudades")
 	
@@ -54,6 +57,14 @@ public class ConsultarVueloController {
     	{  		
     		try {
     			List<Vuelo> vuelos = servicioConsultarVuelo.buscarVuelos(formBean);
+    			
+    			
+    			
+    			for (Vuelo vuelo : vuelos) {
+    	            int asientosDisponibles = servicioAsiento.totalAsientosDisponibles(vuelo);
+    	            vuelo.setCantAsientosDisp(asientosDisponibles);    	            
+    	            servicioVuelo.save(vuelo);
+    	        }		
     			modelo.addAttribute("resultadosVuelos",vuelos);
 			} catch (Exception e) {
 				ObjectError error = new ObjectError("globalError", e.getMessage());

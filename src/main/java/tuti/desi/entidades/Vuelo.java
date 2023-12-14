@@ -50,6 +50,8 @@ public class Vuelo {
 	private Avion avion;
 
 	private String estado = "Normal";
+	
+	private Integer cantAsientosDisp; 
 
 
 	public Avion getAvion() {
@@ -130,6 +132,14 @@ public class Vuelo {
 
 	public void setHoraVuelo(Time horaVuelo) {
 		this.horaVuelo = horaVuelo;
+	}
+	
+	public Integer getCantAsientosDisp() {
+		return cantAsientosDisp;
+	}
+
+	public void setCantAsientosDisp(Integer cantAsientosDisp) {
+		this.cantAsientosDisp = cantAsientosDisp;
 	}
 
 	public Vuelo() {

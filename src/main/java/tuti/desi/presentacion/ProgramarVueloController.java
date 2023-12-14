@@ -77,7 +77,7 @@ public class ProgramarVueloController {
 					vuelo.setTipoDeVuelo(formBean.getTipoDeVueloSeleccionado());
 					vuelo.setAvion(formBean.getAvionSeleccionado());
 					vuelo.setFechaVuelo(formBean.getFechaSeleccionada());
-					vuelo.setHoraVuelo(formBean.getHoraVuelo());				
+					vuelo.setHoraVuelo(formBean.getHoraVuelo());
 					
 					vueloService.save(vuelo);
 

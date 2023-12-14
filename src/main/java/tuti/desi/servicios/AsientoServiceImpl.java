@@ -21,6 +21,11 @@ public class AsientoServiceImpl implements AsientoService {
 	}
 	
 	@Override
+	public Integer totalAsientosDisponibles (Vuelo vueloId) throws Excepcion {
+		return repo.totalAsientosDisponibles(vueloId);
+	}
+	
+	@Override
 	public Asiento save(Asiento a) throws Excepcion {
 
 			return repo.save(a);
