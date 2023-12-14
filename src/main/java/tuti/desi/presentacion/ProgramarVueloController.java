@@ -1,7 +1,6 @@
 package tuti.desi.presentacion;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,14 +11,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import jakarta.validation.Valid;
-import tuti.desi.entidades.Asiento;
 import tuti.desi.entidades.Avion;
 import tuti.desi.entidades.Ciudad;
 import tuti.desi.entidades.Vuelo;
 import tuti.desi.excepciones.Excepcion;
-import tuti.desi.servicios.AsientoService;
 import tuti.desi.servicios.AvionService;
 import tuti.desi.servicios.CiudadService;
 import tuti.desi.servicios.VueloService;
@@ -78,11 +74,11 @@ public class ProgramarVueloController {
 					vuelo.setAvion(formBean.getAvionSeleccionado());
 					vuelo.setFechaVuelo(formBean.getFechaSeleccionada());
 					vuelo.setHoraVuelo(formBean.getHoraVuelo());
-					
+
 					vueloService.save(vuelo);
 
-					vueloService.saveVueloConAsientos(vuelo);			
-					
+					vueloService.saveVueloConAsientos(vuelo);
+
 					return "redirect:/programarVuelo";
 
 				} catch (Exception e) {

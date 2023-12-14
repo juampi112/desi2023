@@ -1,7 +1,6 @@
 package tuti.desi.presentacion;
 
 import java.sql.Date;
-
 import tuti.desi.entidades.Ciudad;
 
 public class ConsultarVueloForm {

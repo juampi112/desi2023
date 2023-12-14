@@ -13,65 +13,51 @@ import jakarta.validation.constraints.NotNull;
 @NotNull
 @Component
 public class Asiento {
-	
-	 @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long id;
 
-	    private Integer numero;
-	    private boolean disponible;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-	    @ManyToOne
-	    @JoinColumn(name = "vuelo_id")
-	    private Vuelo vuelo;
-	
+	private Integer numero;
+	private boolean disponible;
+
+	@ManyToOne
+	@JoinColumn(name = "vuelo_id")
+	private Vuelo vuelo;
 
 	public Long getId() {
-			return id;
-		}
+		return id;
+	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+	public Integer getNumero() {
+		return numero;
+	}
 
+	public void setNumero(Integer numero) {
+		this.numero = numero;
+	}
 
+	public boolean isDisponible() {
+		return disponible;
+	}
 
+	public void setDisponible(boolean disponible) {
+		this.disponible = disponible;
+	}
 
+	public Vuelo getVuelo() {
+		return vuelo;
+	}
 
-
-		public Integer getNumero() {
-			return numero;
-		}
-
-
-		public void setNumero(Integer numero) {
-			this.numero = numero;
-		}
-
-
-		public boolean isDisponible() {
-			return disponible;
-		}
-
-
-		public void setDisponible(boolean disponible) {
-			this.disponible = disponible;
-		}
-
-
-		public Vuelo getVuelo() {
-			return vuelo;
-		}
-
-
-		public void setVuelo(Vuelo vuelo) {
-			this.vuelo = vuelo;
-		}
-
+	public void setVuelo(Vuelo vuelo) {
+		this.vuelo = vuelo;
+	}
 
 	public Asiento() {
-	}	
-	
-	
+	}
+
 }
