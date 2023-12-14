@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,7 +30,7 @@ public class Vuelo {
 
 	private String numeroVuelo;
 
-	@OneToMany(mappedBy = "vuelo")
+	@OneToMany(mappedBy = "vuelo", cascade = CascadeType.PERSIST)
 	private List<Asiento> asientos;
 
 	@ManyToOne
@@ -50,24 +51,6 @@ public class Vuelo {
 
 	private String estado = "Normal";
 
-	
-	
-	public List<Asiento> getAsientos() {
-		return asientos;
-	}
-
-	public void setAsientos() {	
-        List<Asiento> nuevosAsientos = new ArrayList<>();
-        int totalAsientos = this.getAvion().getCapacidad();
-        for (int i = 1; i <= totalAsientos; i++) {
-            Asiento asiento = new Asiento();
-            asiento.setNumero(i); 
-            asiento.setDisponible(true); 
-            asiento.setVuelo(this);
-            nuevosAsientos.add(asiento);
-        }
-        this.asientos = nuevosAsientos;		
-	}
 
 	public Avion getAvion() {
 		return avion;

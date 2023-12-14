@@ -39,6 +39,7 @@ public class Asiento {
 
 
 
+
 		public Integer getNumero() {
 			return numero;
 		}

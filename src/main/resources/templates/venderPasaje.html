@@ -70,18 +70,21 @@
 				<label th:text="#{vender.pasaje.asiento}" class="label" for="asiento" />
 			</div>
 
-			
+	
+		<div class="starter-template contenedorGeneral segundaparte">
+			<input class="custom-btn btn-16" type="submit" name="action" value="ConsultarAsientoYPrecio" />
+		</div>
+		
 			
 		</div>
 		<div class="starter-template contenedorGeneral segundaparte">
-			<input class="custom-btn btn-16" type="submit" name="action" value="EmitirTicket" />
+			<input class="custom-btn btn-16" type="submit" name="action" value="EmitirTicket"  />
 		</div>
 
-		<div class="starter-template contenedorGeneral segundaparte">
-			<input class="custom-btn btn-16" type="submit" name="action" value="ConsultarAsiento" />
-		</div>
-
-
+		<div class="alert alert-success" th:if="${mostrarPrecio}">    <p th:text="${mostrarPrecio}"></p></div>
+		
+		
+		<div class="alert alert-success" th:if="${mensaje}">    <p th:text="${mensaje}"></p></div>
 
 	</form>
 </body>
