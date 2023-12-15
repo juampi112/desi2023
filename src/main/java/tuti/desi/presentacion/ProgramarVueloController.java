@@ -47,7 +47,7 @@ public class ProgramarVueloController {
 		return this.servicioAvion.getAll();
 	}
 
-	@RequestMapping(method = RequestMethod.POST) // boton submit
+	@RequestMapping(method = RequestMethod.POST) 
 	public String submit(@ModelAttribute("formBean") @Valid ProgramarVueloForm formBean, BindingResult result,
 			ModelMap modelo, @RequestParam String action) throws Excepcion {
 

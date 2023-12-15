@@ -27,7 +27,7 @@ public class ModificarImpuestosYTasasController {
 		ModificarImpuestosYTasasForm form = new ModificarImpuestosYTasasForm();
 		modelo.addAttribute("formBean", form);
 		Optional<ImpuestosYTasas> impYTasas = impuestosService.findById((long) 1);
-//       modelo.addAttribute("impYTasas", impYTasas.get());
+
 		form.setIvaSeleccionado(impYTasas.get().getIva());
 		form.setCotizacionDolarSeleccionado(impYTasas.get().getCotizacionDolar());
 		form.setTasaAeroportuariaInternacionalSeleccionado(impYTasas.get().getTasaAeroportuariaInternacional());

@@ -54,7 +54,6 @@ public class VenderPasajeController {
 							"Cliente no Registrado. Ingrese un cliente valido");
 					result.addError(error);
 				} else {
-					// modelo.addAttribute("esUsuarioRegistrado", true);
 					modelo.addAttribute("resultadoCliente", cliente);
 				}
 			} catch (Exception e) {
@@ -66,10 +65,8 @@ public class VenderPasajeController {
 			return "venderPasaje";
 		}
 
-		// servicioAsiento
 		if (action.equals("ConsultarAsientoYPrecio")) {
 
-			// ver de remplazar o usar un metodo de ultima
 			try {
 				Cliente cliente = servicioVenderPasaje.buscarCliente(formBean);
 				if (cliente == null) {
@@ -77,7 +74,6 @@ public class VenderPasajeController {
 							"Cliente no Registrado. Ingrese un cliente valido");
 					result.addError(error);
 				} else {
-					// modelo.addAttribute("esUsuarioRegistrado", true);
 					modelo.addAttribute("resultadoCliente", cliente);
 				}
 			} catch (Exception e) {
@@ -94,34 +90,35 @@ public class VenderPasajeController {
 					List<Asiento> asientos = servicioAsiento.obtenerAsiento(vuelo);
 
 					modelo.addAttribute("resultadoVuelo", asientos);
+
 				}
+				modelo.addAttribute("formBean", formBean);
+
+				Vuelo vueloaConsultar = formBean.getVueloAConsultar();
+
+				Double precio = vueloaConsultar.getPrecio();
+				boolean esNacional = vueloaConsultar.getTipoDeVuelo().equals("nacional");
+				Double precioTotal = 0.0;
+				Optional<ImpuestosYTasas> impYTasas = impuestosService.findById((long) 1);
+				Double iva = impYTasas.get().getIva() / 100;
+				if (esNacional) {
+					Double tasaNac = impYTasas.get().getTasaAeroportuariaNacional();
+					precioTotal = precio + tasaNac + (precio * iva);
+
+				} else {
+					Double tasaInt = impYTasas.get().getTasaAeroportuariaInternacional();
+					Double dolar = impYTasas.get().getCotizacionDolar();
+
+					precioTotal = precio + (tasaInt * dolar) + (iva * precio);
+				}
+
+				modelo.addAttribute("mostrarPrecio", precioTotal);
+
 			} catch (Exception e) {
-				ObjectError error = new ObjectError("globalError", e.getMessage());
+				ObjectError error = new ObjectError("globalError", "Vuelo sin seleccionar");
 				result.addError(error);
 			}
 
-			modelo.addAttribute("formBean", formBean);
-
-			Vuelo vuelo = formBean.getVueloAConsultar();
-
-			Double precio = vuelo.getPrecio();
-			boolean esNacional = vuelo.getTipoDeVuelo().equals("nacional");// ver
-			Double precioTotal = 0.0;
-			// ImpuestosYTasas impYtas = new ImpuestosYTasas();
-			Optional<ImpuestosYTasas> impYTasas = impuestosService.findById((long) 1);
-			Double iva = impYTasas.get().getIva() / 100;
-			if (esNacional) {
-				Double tasaNac = impYTasas.get().getTasaAeroportuariaNacional();
-				precioTotal = precio + tasaNac + (precio * iva);
-
-			} else {
-				Double tasaInt = impYTasas.get().getTasaAeroportuariaInternacional();
-				Double dolar = impYTasas.get().getCotizacionDolar();
-
-				precioTotal = precio + (tasaInt * dolar) + (iva * precio);
-			}
-
-			modelo.addAttribute("mostrarPrecio", precioTotal);
 			return "venderPasaje";
 
 		}
