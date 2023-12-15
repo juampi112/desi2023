@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Consultar Vuelos</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+
+
+<body>
+	<div class="Titulos-Contenedores">
+		<h1 class="Titulos-H1">Consultar Vuelo</h1>
+	</div>
+	<form th:action="@{/consultaVuelo}" th:object="${formBean}" method="post">
+		<p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error" />
+
+
+		<div class="starter-template contenedorGeneral perimeraparte">
+			<div class="input-group">
+				<input required type="date" th:field="*{fechaAconsultar}" class="fecha_hora" id="fecha" />
+				<label th:text="#{consulta.vuelo.fecha}" class="label_fecha_hora" for="fecha" />
+			</div>
+			<div class="input-group">
+				<select th:field="*{ciudadOrigen_Aconsultar}" class="select" id="ciudadOr">
+					<option class="option" th:value="null" text="Seleccione una opción"></option>
+					<option class="option" th:each="p : ${allCiudades}" th:value="${p.id}" th:text="${p.nombre}">
+					</option>
+				</select>
+				<label th:text="#{consulta.vuelo.origen}" class="label" for="ciudadOr" />
+			</div>
+			<div class="input-group">
+				<select th:field="*{ciudadDestino_Aconsultar}" class="select" id="ciudadDes">
+					<option class="option" th:value="null" text="Seleccione una opción"></option>
+					<option class="option" th:each="p : ${allCiudades}" th:value="${p.id}" th:text="${p.nombre}">
+					</option>
+				</select>
+				<label th:text="#{consulta.vuelo.destino}" class="label" for="ciudadDes" />
+			</div>
+
+
+			<div class="input-group">
+				<select th:field="*{tipoDeVuelo_Aconsultar}" class="select" id="tipoViaje">
+					<option class="option" value=""></option>
+					<option class="option" value="nacional">Nacional</option>
+					<option class="option" value="internacional">Internacional</option>
+				</select>
+				<label th:text="#{consulta.vuelo.tipo}" class="label" for="tipoViaje" />
+			</div>
+
+		</div>
+		<div class="starter-template contenedorGeneral segundaparte">
+			<input class="custom-btn btn-16" type="submit" name="action" value="BuscarVuelos" />
+		</div>
+
+
+		<table class="resultados-busqueda-vuelo">
+			<thead>
+				<tr>
+					<th><label th:text="#{consulta.vuelo.fechaResultado}" /></th>
+					<th><label th:text="#{consulta.vuelo.hora}" /></th>
+					<th><label th:text="#{consulta.vuelo.numero}" /></th>
+					<th><label th:text="#{consulta.vuelo.tipo}" /></th>
+					<th><label th:text="#{consulta.vuelo.Estado}" /></th>
+					<th><label th:text="#{consulta.vuelo.Cantidad.Asiento}" /></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="v : ${resultadosVuelos}">
+					<td th:text="${{v.fechaVuelo}}"></td>
+					<td th:text="${{v.horaVuelo}}"></td>
+					<td th:text="${{v.numeroVuelo}}"></td>
+					<td th:text="${{v.TipoDeVuelo}}"></td>
+					<td th:text="${{v.estado}}"></td>
+					<td th:text="${{v.cantAsientosDisp}}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="div-volver">
+			<a class="custom-btn btn-16 volver" th:href="@{/}">Volver al inicio</a>
+		</div>
+	</form>
+</body>
+
+</html>

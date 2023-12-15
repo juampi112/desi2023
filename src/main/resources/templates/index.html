@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <body>
-	
-   
-	
-   <div class="starter-template">
-        <h1>Ejemplo Spring Boot Web Thymeleaf </h1>
-        <h2>
-            <span th:text="'Bienvenido'"></span>
-        </h2>
-    </div>
- 
-    <a th:href="programarVuelo">programar vuelo</a>
-    
 
-        
-  </body>
+<head>
+	<title>Inicio</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+
+
+
+	<div class="starter-template">
+		<h1 class="Bienvenido">Bienvenidos</h1>
+	</div>
+	<div class="centrar_botones_inicio">
+		<a class="custom-btn btn-16 botonIRprogramarVuelo" th:href="programarVuelo">programar vuelo</a>
+		<a class="custom-btn btn-16 botonIRprogramarVuelo" th:href="modificarImpuestosYTasas">Impuestos Y Tasas</a>
+		<a class="custom-btn btn-16 botonIRprogramarVuelo" th:href="consultaVuelo">Consultas de Vuelo</a>
+		<a class="custom-btn btn-16 botonIRprogramarVuelo" th:href="venderPasaje">Vender Pasajes</a>
+	</div>
+</body>
+
 </html>
